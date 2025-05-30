@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Plan Template</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <style>
+        .hero-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        .metric-counter {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Hero Section -->
+    <section class="hero-gradient min-h-screen flex items-center justify-center text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-black opacity-20"></div>
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <h1 class="text-6xl font-bold mb-6 animate-fade-in">
+                Revolutionary Business Plan
+            </h1>
+            <p class="text-xl mb-8 opacity-90">
+                Transforming industries through innovation and strategic excellence
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+                <div class="glass-card p-6 rounded-lg animate-float">
+                    <div class="metric-counter text-white" id="revenue-counter">$0</div>
+                    <p class="text-lg">Projected Revenue</p>
+                </div>
+                <div class="glass-card p-6 rounded-lg animate-float" style="animation-delay: 2s;">
+                    <div class="metric-counter text-white" id="market-counter">0%</div>
+                    <p class="text-lg">Market Share</p>
+                </div>
+                <div class="glass-card p-6 rounded-lg animate-float" style="animation-delay: 4s;">
+                    <div class="metric-counter text-white" id="growth-counter">0x</div>
+                    <p class="text-lg">Growth Multiplier</p>
+                </div>
+            </div>
+            <div class="mt-12">
+                <button class="bg-white text-purple-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-all transform hover:scale-105 mr-4">
+                    View Full Plan
+                </button>
+                <button class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-purple-600 transition-all transform hover:scale-105">
+                    Schedule Meeting
+                </button>
+            </div>
+        </div>
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Executive Summary -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16 text-gray-800">Executive Summary</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-xl hover:shadow-lg transition-all transform hover:scale-105">
+                    <div class="w-12 h-12 bg-blue-500 rounded-lg mb-4 flex items-center justify-center">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Innovation Focus</h3>
+                    <p class="text-gray-600">Cutting-edge solutions that redefine industry standards and customer expectations.</p>
+                </div>
+                <div class="bg-gradient-to-br from-green-50 to-green-100 p-8 rounded-xl hover:shadow-lg transition-all transform hover:scale-105">
+                    <div class="w-12 h-12 bg-green-500 rounded-lg mb-4 flex items-center justify-center">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Market Growth</h3>
+                    <p class="text-gray-600">Positioned in rapidly expanding markets with significant untapped potential.</p>
+                </div>
+                <div class="bg-gradient-to-br from-purple-50 to-purple-100 p-8 rounded-xl hover:shadow-lg transition-all transform hover:scale-105">
+                    <div class="w-12 h-12 bg-purple-500 rounded-lg mb-4 flex items-center justify-center">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Expert Team</h3>
+                    <p class="text-gray-600">World-class leadership with proven track records in scaling successful ventures.</p>
+                </div>
+                <div class="bg-gradient-to-br from-orange-50 to-orange-100 p-8 rounded-xl hover:shadow-lg transition-all transform hover:scale-105">
+                    <div class="w-12 h-12 bg-orange-500 rounded-lg mb-4 flex items-center justify-center">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Revenue Model</h3>
+                    <p class="text-gray-600">Multiple revenue streams ensuring sustainable growth and profitability.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Market Analysis -->
+    <section class="py-20 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16 text-gray-800">Market Analysis</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div class="bg-white p-8 rounded-xl shadow-lg">
+                    <h3 class="text-2xl font-semibold mb-6 text-gray-800">Market Size Projection</h3>
+                    <canvas id="marketChart" width="400" height="300"></canvas>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg">
+                    <h3 class="text-2xl font-semibold mb-6 text-gray-800">Competitive Landscape</h3>
+                    <canvas id="competitorChart" width="400" height="300"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Financial Projections -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16 text-gray-800">Financial Projections</h2>
+            <div class="bg-gradient-to-r from-blue-50 to-purple-50 p-8 rounded-xl shadow-lg">
+                <canvas id="revenueChart" width="800" height="400"></canvas>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+                <div class="text-center p-6 bg-white rounded-xl shadow-lg border-t-4 border-green-500">
+                    <h4 class="text-lg font-semibold text-gray-800 mb-2">Year 1 Revenue</h4>
+                    <p class="text-3xl font-bold text-green-600">$2.5M</p>
+                </div>
+                <div class="text-center p-6 bg-white rounded-xl shadow-lg border-t-4 border-blue-500">
+                    <h4 class="text-lg font-semibold text-gray-800 mb-2">Year 3 Revenue</h4>
+                    <p class="text-3xl font-bold text-blue-600">$15M</p>
+                </div>
+                <div class="text-center p-6 bg-white rounded-xl shadow-lg border-t-4 border-purple-500">
+                    <h4 class="text-lg font-semibold text-gray-800 mb-2">Break-even</h4>
+                    <p class="text-3xl font-bold text-purple-600">Month 18</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="py-20 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16 text-gray-800">Leadership Team</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-xl shadow-lg text-center hover:shadow-xl transition-all transform hover:scale-105">
+                    <div class="w-24 h-24 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+                        <span class="text-white text-2xl font-bold">CEO</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 text-gray-800">Jane Smith</h3>
+                    <p class="text-purple-600 mb-3">Chief Executive Officer</p>
+                    <p class="text-gray-600">15+ years scaling tech companies from startup to IPO</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg text-center hover:shadow-xl transition-all transform hover:scale-105">
+                    <div class="w-24 h-24 bg-gradient-to-r from-green-500 to-blue-500 rounded-full mx-auto mb-4 flex items-center justify-center">
+                        <span class="text-white text-2xl font-bold">CTO</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 text-gray-800">Mike Johnson</h3>
+                    <p class="text-green-600 mb-3">Chief Technology Officer</p>
+                    <p class="text-gray-600">Former Google engineer with expertise in AI and scalable systems</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg text-center hover:shadow-xl transition-all transform hover:scale-105">
+                    <div class="w-24 h-24 bg-gradient-to-r from-orange-500 to-red-500 rounded-full mx-auto mb-4 flex items-center justify-center">
+                        <span class="text-white text-2xl font-bold">CMO</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 text-gray-800">Sarah Davis</h3>
+                    <p class="text-orange-600 mb-3">Chief Marketing Officer</p>
+                    <p class="text-gray-600">Growth marketing expert who scaled Unicorn companies</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-20 hero-gradient text-white text-center">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold mb-6">Ready to Partner With Us?</h2>
+            <p class="text-xl mb-8 opacity-90">Join us in revolutionizing the industry and creating lasting impact</p>
+            <div class="space-x-4">
+                <button class="bg-white text-purple-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-all transform hover:scale-105">
+                    Download Full Business Plan
+                </button>
+                <button class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-purple-600 transition-all transform hover:scale-105">
+                    Schedule Investment Meeting
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Animated counters
+        function animateCounter(id, target, suffix = '') {
+            const element = document.getElementById(id);
+            let current = 0;
+            const increment = target / 100;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                element.textContent = Math.floor(current) + suffix;
+            }, 20);
+        }
+
+        // Start animations when page loads
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                animateCounter('revenue-counter', 5, 'M');
+                animateCounter('market-counter', 25, '%');
+                animateCounter('growth-counter', 10, 'x');
+            }, 1000);
+        });
+
+        // Market Size Chart
+        const marketCtx = document.getElementById('marketChart').getContext('2d');
+        new Chart(marketCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Our Target', 'Competitors', 'Untapped Market'],
+                datasets: [{
+                    data: [25, 35, 40],
+                    backgroundColor: ['#667eea', '#764ba2', '#f093fb'],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }
+        });
+
+        // Competitor Chart
+        const competitorCtx = document.getElementById('competitorChart').getContext('2d');
+        new Chart(competitorCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Company A', 'Company B', 'Company C', 'Our Solution'],
+                datasets: [{
+                    label: 'Market Share %',
+                    data: [20, 15, 18, 25],
+                    backgroundColor: ['#ff6b6b', '#ffa726', '#66bb6a', '#667eea'],
+                    borderRadius: 8
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 30
+                    }
+                }
+            }
+        });
+
+        // Revenue Chart
+        const revenueCtx = document.getElementById('revenueChart').getContext('2d');
+        new Chart(revenueCtx, {
+            type: 'line',
+            data: {
+                labels: ['Year 1', 'Year 2', 'Year 3', 'Year 4', 'Year 5'],
+                datasets: [{
+                    label: 'Revenue (Millions)',
+                    data: [2.5, 6.8, 15.2, 28.7, 45.3],
+                    borderColor: '#667eea',
+                    backgroundColor: 'rgba(102, 126, 234, 0.1)',
+                    fill: true,
+                    tension: 0.4,
+                    pointBackgroundColor: '#667eea',
+                    pointBorderColor: '#fff',
+                    pointBorderWidth: 3,
+                    pointRadius: 8
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Revenue ($ Millions)'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // GSAP animations on scroll
+        gsap.registerPlugin(ScrollTrigger);
+        
+        gsap.from(".glass-card", {
+            duration: 1,
+            y: 50,
+            opacity: 0,
+            stagger: 0.2,
+            ease: "power2.out"
+        });
+    </script>
+</body>
+</html>
