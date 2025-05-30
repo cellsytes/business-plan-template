@@ -6,10 +6,8 @@
     <title>Glow Your Goddess - Embodied Liberation Through Culturally Rooted Sensuality</title>
     <meta name="description" content="Dr. Joy Berkheimer's revolutionary approach to embodied wellness for women of color. Discover liberation through culturally rooted sensuality and spiritual connection.">
     
-    <!-- External Libraries -->
+    <!-- Chart.js for simple charts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     
     <style>
         * {
@@ -25,73 +23,14 @@
             --soft-pink: #FFE5E5;
             --rich-brown: #5D4037;
             --cream: #FFF8F0;
-            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            --shadow-soft: 0 10px 30px rgba(0,0,0,0.1);
-            --shadow-hover: 0 20px 60px rgba(0,0,0,0.15);
+            --shadow: 0 4px 20px rgba(0,0,0,0.1);
         }
 
         body {
             font-family: 'Inter', system-ui, -apple-system, sans-serif;
             line-height: 1.6;
             color: #333;
-            overflow-x: hidden;
             background: var(--cream);
-        }
-
-        /* Loading Animation */
-        .loader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, var(--deep-purple), var(--primary-gold));
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            transition: opacity 0.5s ease;
-        }
-
-        .loader-content {
-            text-align: center;
-            color: white;
-        }
-
-        .loader h1 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            opacity: 0;
-            animation: fadeInUp 1s ease forwards;
-        }
-
-        .loader-bar {
-            width: 200px;
-            height: 4px;
-            background: rgba(255,255,255,0.3);
-            border-radius: 2px;
-            overflow: hidden;
-        }
-
-        .loader-progress {
-            width: 0%;
-            height: 100%;
-            background: white;
-            border-radius: 2px;
-            animation: loadProgress 2s ease forwards;
-        }
-
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes loadProgress {
-            to { width: 100%; }
         }
 
         /* Navigation */
@@ -103,12 +42,7 @@
             backdrop-filter: blur(10px);
             padding: 1rem 0;
             z-index: 1000;
-            transition: all 0.3s ease;
-        }
-
-        nav.scrolled {
-            background: rgba(255, 248, 240, 0.98);
-            box-shadow: var(--shadow-soft);
+            box-shadow: var(--shadow);
         }
 
         .nav-container {
@@ -138,26 +72,10 @@
             color: var(--rich-brown);
             font-weight: 500;
             transition: color 0.3s ease;
-            position: relative;
         }
 
         .nav-links a:hover {
             color: var(--primary-gold);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary-gold);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
         }
 
         /* Hero Section */
@@ -169,45 +87,22 @@
             justify-content: center;
             text-align: center;
             color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="0.5" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.8" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
-            animation: float 20s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
+            padding: 2rem;
         }
 
         .hero-content {
             max-width: 800px;
-            z-index: 2;
-            position: relative;
         }
 
         .hero h1 {
             font-size: clamp(3rem, 8vw, 6rem);
             font-weight: 800;
             margin-bottom: 1rem;
-            opacity: 0;
-            transform: translateY(50px);
         }
 
         .hero-subtitle {
             font-size: clamp(1.2rem, 3vw, 1.8rem);
             margin-bottom: 2rem;
-            opacity: 0;
-            transform: translateY(50px);
             font-weight: 300;
         }
 
@@ -216,8 +111,6 @@
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: 2rem;
             margin: 3rem 0;
-            opacity: 0;
-            transform: translateY(50px);
         }
 
         .stat-item {
@@ -242,8 +135,6 @@
             justify-content: center;
             flex-wrap: wrap;
             margin-top: 2rem;
-            opacity: 0;
-            transform: translateY(50px);
         }
 
         .btn {
@@ -265,7 +156,7 @@
 
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: var(--shadow-hover);
+            box-shadow: var(--shadow);
         }
 
         .btn-secondary {
@@ -277,7 +168,6 @@
         .btn-secondary:hover {
             background: white;
             color: var(--deep-purple);
-            transform: translateY(-2px);
         }
 
         /* Section Styles */
@@ -308,41 +198,42 @@
             margin: 0 auto;
         }
 
+        /* Cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            color: var(--deep-purple);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
         /* Executive Summary */
         .executive-summary {
             background: linear-gradient(135deg, var(--soft-pink) 0%, white 100%);
             border-radius: 20px;
             padding: 3rem;
             margin: 2rem 0;
-            box-shadow: var(--shadow-soft);
+            box-shadow: var(--shadow);
         }
 
-        .summary-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .summary-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: var(--shadow-soft);
-            transition: transform 0.3s ease;
-        }
-
-        .summary-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .summary-card h3 {
-            color: var(--deep-purple);
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
-
-        /* Value Proposition */
+        /* Value Props */
         .value-props {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -355,37 +246,18 @@
             padding: 2rem;
             background: white;
             border-radius: 15px;
-            box-shadow: var(--shadow-soft);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .value-prop::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--gradient-1);
-            transform: scaleX(0);
+            box-shadow: var(--shadow);
             transition: transform 0.3s ease;
         }
 
-        .value-prop:hover::before {
-            transform: scaleX(1);
-        }
-
         .value-prop:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-hover);
+            transform: translateY(-5px);
         }
 
         .value-prop-icon {
             width: 60px;
             height: 60px;
-            background: var(--gradient-1);
+            background: linear-gradient(135deg, var(--deep-purple), var(--primary-gold));
             border-radius: 50%;
             margin: 0 auto 1rem;
             display: flex;
@@ -393,11 +265,6 @@
             justify-content: center;
             font-size: 1.5rem;
             color: white;
-        }
-
-        .value-prop h3 {
-            color: var(--deep-purple);
-            margin-bottom: 1rem;
         }
 
         /* Market Analysis */
@@ -418,7 +285,7 @@
             background: white;
             padding: 2rem;
             border-radius: 15px;
-            box-shadow: var(--shadow-soft);
+            box-shadow: var(--shadow);
             text-align: center;
         }
 
@@ -427,12 +294,13 @@
             margin-bottom: 1rem;
         }
 
-        .market-size {
+        .market-circles {
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 1rem;
             margin: 2rem 0;
+            flex-wrap: wrap;
         }
 
         .market-circle {
@@ -445,19 +313,18 @@
             text-align: center;
             color: white;
             font-weight: 700;
-            position: relative;
         }
 
-        .tam { background: var(--gradient-1); }
-        .sam { background: var(--gradient-2); }
-        .som { background: var(--gradient-3); }
+        .tam { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .sam { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+        .som { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
 
-        /* Financial Projections */
+        /* Financial Dashboard */
         .financial-dashboard {
             background: white;
             border-radius: 20px;
             padding: 3rem;
-            box-shadow: var(--shadow-soft);
+            box-shadow: var(--shadow);
             margin: 3rem 0;
         }
 
@@ -539,60 +406,38 @@
             font-size: 0.9rem;
         }
 
-        /* Product Roadmap */
-        .roadmap {
+        /* Roadmap */
+        .roadmap-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
             margin: 3rem 0;
         }
 
-        .timeline {
-            position: relative;
-            padding: 2rem 0;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: var(--primary-gold);
-            transform: translateX(-50%);
-        }
-
-        .timeline-item {
-            display: flex;
-            margin: 2rem 0;
-            position: relative;
-        }
-
-        .timeline-item:nth-child(odd) {
-            flex-direction: row;
-        }
-
-        .timeline-item:nth-child(even) {
-            flex-direction: row-reverse;
-        }
-
-        .timeline-content {
-            width: 45%;
+        .roadmap-phase {
             background: white;
             padding: 2rem;
             border-radius: 15px;
-            box-shadow: var(--shadow-soft);
-            position: relative;
+            box-shadow: var(--shadow);
         }
 
-        .timeline-marker {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            width: 20px;
-            height: 20px;
-            background: var(--primary-gold);
-            border-radius: 50%;
-            border: 4px solid var(--cream);
+        .roadmap-phase h3 {
+            color: var(--deep-purple);
+            margin-bottom: 1rem;
+        }
+
+        .roadmap-phase ul {
+            color: var(--rich-brown);
+            line-height: 1.8;
+            margin-left: 1rem;
+        }
+
+        .phase-target {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: var(--soft-pink);
+            border-radius: 10px;
+            font-weight: 600;
         }
 
         /* Contact Section */
@@ -608,7 +453,7 @@
             background: white;
             padding: 3rem;
             border-radius: 20px;
-            box-shadow: var(--shadow-soft);
+            box-shadow: var(--shadow);
         }
 
         .form-group {
@@ -624,7 +469,8 @@
         }
 
         .form-group input,
-        .form-group textarea {
+        .form-group textarea,
+        .form-group select {
             width: 100%;
             padding: 1rem;
             border: 2px solid #eee;
@@ -634,9 +480,104 @@
         }
 
         .form-group input:focus,
-        .form-group textarea:focus {
+        .form-group textarea:focus,
+        .form-group select:focus {
             outline: none;
             border-color: var(--primary-gold);
+        }
+
+        /* Revenue Streams */
+        .revenue-streams {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .revenue-stream {
+            text-align: center;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+
+        .revenue-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--deep-purple), var(--primary-gold));
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .revenue-percentage {
+            font-size: 1.2rem;
+            color: var(--primary-gold);
+            font-weight: 700;
+        }
+
+        /* Competitive Advantages */
+        .advantage-bars {
+            margin: 2rem 0;
+        }
+
+        .advantage-item {
+            margin: 1.5rem 0;
+        }
+
+        .advantage-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .advantage-bar {
+            width: 100%;
+            height: 20px;
+            background: #eee;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .advantage-fill {
+            height: 100%;
+            border-radius: 10px;
+            transition: width 2s ease;
+        }
+
+        .high { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+        .medium { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+
+        /* Footer */
+        footer {
+            background: var(--deep-purple);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
         }
 
         /* Responsive Design */
@@ -654,79 +595,25 @@
                 text-align: center;
             }
             
-            .timeline::before {
-                left: 20px;
-            }
-            
-            .timeline-item {
+            .market-circles {
                 flex-direction: column;
             }
-            
-            .timeline-content {
-                width: calc(100% - 60px);
-                margin-left: 40px;
-            }
-            
-            .timeline-marker {
-                left: 20px;
-            }
         }
 
-        /* Animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
+        /* Simple hover effects */
+        .card, .value-prop, .revenue-stream {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .slide-in-left {
-            opacity: 0;
-            transform: translateX(-50px);
-            transition: all 0.6s ease;
-        }
-
-        .slide-in-left.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .slide-in-right {
-            opacity: 0;
-            transform: translateX(50px);
-            transition: all 0.6s ease;
-        }
-
-        .slide-in-right.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        /* Counter Animation */
-        .counter {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--primary-gold);
+        .card:hover, .value-prop:hover, .revenue-stream:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
         }
     </style>
 </head>
 <body>
-    <!-- Loader -->
-    <div class="loader" id="loader">
-        <div class="loader-content">
-            <h1>Glow Your Goddess</h1>
-            <div class="loader-bar">
-                <div class="loader-progress"></div>
-            </div>
-        </div>
-    </div>
-
     <!-- Navigation -->
-    <nav id="navbar">
+    <nav>
         <div class="nav-container">
             <a href="#home" class="logo">Glow Your Goddess</a>
             <ul class="nav-links">
@@ -743,21 +630,21 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1 id="hero-title">Glow Your Goddess</h1>
+            <h1>Glow Your Goddess</h1>
             <p class="hero-subtitle">Embodied Liberation Through Culturally Rooted Sensuality</p>
             
             <div class="hero-stats">
                 <div class="stat-item">
-                    <span class="stat-number counter" data-target="215">0</span>
-                    <span class="stat-label">Billion Market</span>
+                    <span class="stat-number">$215B</span>
+                    <span class="stat-label">Market Opportunity</span>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-number counter" data-target="4.2">0</span>
-                    <span class="stat-label">Million Revenue Y5</span>
+                    <span class="stat-number">$4.2M</span>
+                    <span class="stat-label">Year 5 Revenue</span>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-number counter" data-target="42">0</span>
-                    <span class="stat-label">% Profit Margin</span>
+                    <span class="stat-number">42%</span>
+                    <span class="stat-label">Profit Margin</span>
                 </div>
             </div>
             
@@ -770,63 +657,58 @@
 
     <!-- Executive Summary -->
     <section id="overview" class="section">
-        <div class="section-header fade-in">
+        <div class="section-header">
             <h2 class="section-title">Executive Summary</h2>
             <p class="section-subtitle">Revolutionizing wellness through culturally authentic embodiment practices</p>
         </div>
         
-        <div class="executive-summary fade-in">
+        <div class="executive-summary">
             <p style="font-size: 1.1rem; line-height: 1.8; color: var(--rich-brown);">
                 Dr. Joy Berkheimer's Glow Your Goddess brand is positioned at the powerful intersection of embodied spirituality, 
                 sensual wellness, and cultural empowerment. Our comprehensive analysis reveals significant potential to scale 
                 this uniquely positioned brand, capitalizing on three converging market trends: the rapid growth of holistic 
                 wellness, increasing demand for culturally authentic healing modalities, and the expansion of digital wellness platforms.
             </p>
+        </div>
+        
+        <div class="card-grid">
+            <div class="card">
+                <h3>🎯 Target Market</h3>
+                <p>Professional women of color, ages 28-42, seeking authentic approaches to sensual wellness that honor their cultural identity and lived experiences.</p>
+            </div>
             
-            <div class="summary-grid">
-                <div class="summary-card slide-in-left">
-                    <h3>🎯 Target Market</h3>
-                    <p>Professional women of color, ages 28-42, seeking authentic approaches to sensual wellness that honor their cultural identity and lived experiences.</p>
-                </div>
-                
-                <div class="summary-card slide-in-right">
-                    <h3>💰 Revenue Potential</h3>
-                    <p>Year 1: $420K (22% margin)<br>Year 3: $1.6M (35% margin)<br>Year 5: $4.2M (42% margin)</p>
-                </div>
-                
-                <div class="summary-card slide-in-left">
-                    <h3>🌟 Unique Position</h3>
-                    <p>Integration of clinical psychology expertise with sensual yoga, tantra, and erotic embodiment practices designed specifically for marginalized communities.</p>
-                </div>
-                
-                <div class="summary-card slide-in-right">
-                    <h3>📈 Market Opportunity</h3>
-                    <p>$215B total addressable market with $28.4B serviceable available market for culturally-specific wellness offerings.</p>
-                </div>
+            <div class="card">
+                <h3>💰 Revenue Potential</h3>
+                <p>Year 1: $791K<br>Year 2: $1.7M<br>Year 3: $2.8M<br>Strong growth with healthy margins.</p>
+            </div>
+            
+            <div class="card">
+                <h3>🌟 Unique Position</h3>
+                <p>Integration of clinical psychology expertise with sensual yoga, tantra, and erotic embodiment practices designed specifically for marginalized communities.</p>
             </div>
         </div>
         
         <!-- Value Propositions -->
         <div class="value-props">
-            <div class="value-prop fade-in">
+            <div class="value-prop">
                 <div class="value-prop-icon">🌺</div>
                 <h3>Sacred Sensuality</h3>
                 <p>Pleasure-positive, body-honoring approaches that integrate spirituality with sensual embodiment.</p>
             </div>
             
-            <div class="value-prop fade-in">
+            <div class="value-prop">
                 <div class="value-prop-icon">🌍</div>
                 <h3>Cultural Authenticity</h3>
                 <p>Decolonized practices rooted in ancestral wisdom with inclusive representation.</p>
             </div>
             
-            <div class="value-prop fade-in">
+            <div class="value-prop">
                 <div class="value-prop-icon">✨</div>
                 <h3>Embodied Transformation</h3>
                 <p>Experiential learning through somatic healing and sustainable life changes.</p>
             </div>
             
-            <div class="value-prop fade-in">
+            <div class="value-prop">
                 <div class="value-prop-icon">💖</div>
                 <h3>Joy-Centered Liberation</h3>
                 <p>Celebratory approach to radical self-love and authentic expression.</p>
@@ -837,15 +719,15 @@
     <!-- Market Analysis -->
     <section id="market" class="market-section">
         <div class="section">
-            <div class="section-header fade-in">
+            <div class="section-header">
                 <h2 class="section-title">Market Opportunity</h2>
                 <p class="section-subtitle">Positioned at the intersection of massive, growing market segments</p>
             </div>
             
             <div class="market-visual">
-                <div class="chart-container fade-in">
+                <div class="chart-container">
                     <h3>Market Size Analysis</h3>
-                    <div class="market-size">
+                    <div class="market-circles">
                         <div class="market-circle tam">
                             <div>
                                 <div>$215B</div>
@@ -866,41 +748,69 @@
                         </div>
                     </div>
                     <p style="margin-top: 1rem; color: var(--rich-brown);">
-                        Total Addressable Market → Serviceable Available Market → Serviceable Obtainable Market
+                        Total Addressable → Serviceable Available → Serviceable Obtainable
                     </p>
                 </div>
                 
-                <div class="chart-container fade-in">
-                    <h3>Growth Trends</h3>
-                    <canvas id="growthChart" width="400" height="300"></canvas>
+                <div class="chart-container">
+                    <h3>Growth Trends (CAGR)</h3>
+                    <div style="text-align: left; margin-top: 1rem;">
+                        <div style="margin: 1rem 0;">
+                            <strong>Digital Wellness: 25%</strong>
+                            <div style="width: 100%; height: 10px; background: #eee; border-radius: 5px; margin: 0.5rem 0;">
+                                <div style="width: 83%; height: 100%; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 5px;"></div>
+                            </div>
+                        </div>
+                        <div style="margin: 1rem 0;">
+                            <strong>Cultural Wellness: 22%</strong>
+                            <div style="width: 100%; height: 10px; background: #eee; border-radius: 5px; margin: 0.5rem 0;">
+                                <div style="width: 73%; height: 100%; background: linear-gradient(135deg, #f093fb, #f5576c); border-radius: 5px;"></div>
+                            </div>
+                        </div>
+                        <div style="margin: 1rem 0;">
+                            <strong>Sexual Empowerment: 18%</strong>
+                            <div style="width: 100%; height: 10px; background: #eee; border-radius: 5px; margin: 0.5rem 0;">
+                                <div style="width: 60%; height: 100%; background: linear-gradient(135deg, #4facfe, #00f2fe); border-radius: 5px;"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             
-            <div style="background: white; padding: 3rem; border-radius: 20px; box-shadow: var(--shadow-soft); margin: 3rem 0;" class="fade-in">
+            <div style="background: white; padding: 3rem; border-radius: 20px; box-shadow: var(--shadow); margin: 3rem 0;">
                 <h3 style="color: var(--deep-purple); margin-bottom: 2rem; text-align: center;">Competitive Advantage Matrix</h3>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
-                    <div style="text-align: center; padding: 1.5rem;">
-                        <h4 style="color: var(--primary-gold); margin-bottom: 1rem;">Cultural Relevance</h4>
-                        <div style="width: 100%; height: 20px; background: #eee; border-radius: 10px; overflow: hidden;">
-                            <div style="width: 85%; height: 100%; background: var(--gradient-2);"></div>
+                <div class="advantage-bars">
+                    <div class="advantage-item">
+                        <div class="advantage-label">
+                            <span><strong>Cultural Relevance</strong></span>
+                            <span>HIGH</span>
                         </div>
-                        <p style="margin-top: 0.5rem; font-size: 0.9rem;">HIGH - Few competitors address cultural conditioning</p>
+                        <div class="advantage-bar">
+                            <div class="advantage-fill high" style="width: 85%;"></div>
+                        </div>
+                        <p style="font-size: 0.9rem; margin-top: 0.5rem;">Few competitors address cultural conditioning around sensuality</p>
                     </div>
                     
-                    <div style="text-align: center; padding: 1.5rem;">
-                        <h4 style="color: var(--primary-gold); margin-bottom: 1rem;">Academic Credibility</h4>
-                        <div style="width: 100%; height: 20px; background: #eee; border-radius: 10px; overflow: hidden;">
-                            <div style="width: 70%; height: 100%; background: var(--gradient-1);"></div>
+                    <div class="advantage-item">
+                        <div class="advantage-label">
+                            <span><strong>Academic Credibility</strong></span>
+                            <span>MEDIUM</span>
                         </div>
-                        <p style="margin-top: 0.5rem; font-size: 0.9rem;">MEDIUM - PhD + embodied practice combination</p>
+                        <div class="advantage-bar">
+                            <div class="advantage-fill medium" style="width: 70%;"></div>
+                        </div>
+                        <p style="font-size: 0.9rem; margin-top: 0.5rem;">PhD credentials + embodied practice combination</p>
                     </div>
                     
-                    <div style="text-align: center; padding: 1.5rem;">
-                        <h4 style="color: var(--primary-gold); margin-bottom: 1rem;">Sensuality Focus</h4>
-                        <div style="width: 100%; height: 20px; background: #eee; border-radius: 10px; overflow: hidden;">
-                            <div style="width: 90%; height: 100%; background: var(--gradient-3);"></div>
+                    <div class="advantage-item">
+                        <div class="advantage-label">
+                            <span><strong>Sensuality Focus</strong></span>
+                            <span>HIGH</span>
                         </div>
-                        <p style="margin-top: 0.5rem; font-size: 0.9rem;">HIGH - Most wellness platforms avoid explicit sensuality</p>
+                        <div class="advantage-bar">
+                            <div class="advantage-fill high" style="width: 90%;"></div>
+                        </div>
+                        <p style="font-size: 0.9rem; margin-top: 0.5rem;">Most wellness platforms avoid explicit sensuality focus</p>
                     </div>
                 </div>
             </div>
@@ -909,12 +819,12 @@
 
     <!-- Financial Projections -->
     <section id="financials" class="section">
-        <div class="section-header fade-in">
+        <div class="section-header">
             <h2 class="section-title">Financial Projections</h2>
             <p class="section-subtitle">Strong growth trajectory with healthy margins and diversified revenue streams</p>
         </div>
         
-        <div class="financial-dashboard fade-in">
+        <div class="financial-dashboard">
             <h3 style="color: var(--deep-purple); margin-bottom: 2rem; text-align: center;">3-Year Revenue Forecast</h3>
             <div class="revenue-chart">
                 <canvas id="revenueChart"></canvas>
@@ -922,56 +832,38 @@
             
             <div class="financial-metrics">
                 <div class="metric-card">
-                    <div class="metric-value counter" data-target="791">0</div>
-                    <div class="metric-label">Year 1 Revenue ($K)</div>
+                    <div class="metric-value">$791K</div>
+                    <div class="metric-label">Year 1 Revenue</div>
                 </div>
                 <div class="metric-card">
-                    <div class="metric-value counter" data-target="1702">0</div>
-                    <div class="metric-label">Year 2 Revenue ($K)</div>
+                    <div class="metric-value">$1.7M</div>
+                    <div class="metric-label">Year 2 Revenue</div>
                 </div>
                 <div class="metric-card">
-                    <div class="metric-value counter" data-target="2751">0</div>
-                    <div class="metric-label">Year 3 Revenue ($K)</div>
+                    <div class="metric-value">$2.8M</div>
+                    <div class="metric-label">Year 3 Revenue</div>
                 </div>
                 <div class="metric-card">
-                    <div class="metric-value counter" data-target="55">0</div>
-                    <div class="metric-label">Year 3 Profit Margin (%)</div>
+                    <div class="metric-value">55%</div>
+                    <div class="metric-label">Year 3 Profit Margin</div>
                 </div>
             </div>
         </div>
         
         <!-- Revenue Streams -->
-        <div style="background: white; padding: 3rem; border-radius: 20px; box-shadow: var(--shadow-soft); margin: 3rem 0;" class="fade-in">
+        <div style="background: white; padding: 3rem; border-radius: 20px; box-shadow: var(--shadow); margin: 3rem 0;">
             <h3 style="color: var(--deep-purple); margin-bottom: 2rem; text-align: center;">Revenue Stream Diversification</h3>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem;">
-                <div style="text-align: center; padding: 1.5rem;">
-                    <div style="width: 80px; height: 80px; background: var(--gradient-1); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">📚</div>
-                    <h4>Digital Courses</h4>
-                    <p style="font-size: 1.2rem; color: var(--primary-gold); font-weight: 700;">42%</p>
-                    <p style="font-size: 0.9rem; color: var(--rich-brown);">Premium transformation programs</p>
-                </div>
-                <div style="text-align: center; padding: 1.5rem;">
-                    <div style="width: 80px; height: 80px; background: var(--gradient-2); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">👥</div>
-                    <h4>Community</h4>
-                    <p style="font-size: 1.2rem; color: var(--primary-gold); font-weight: 700;">28%</p>
-                    <p style="font-size: 0.9rem; color: var(--rich-brown);">Membership & group programs</p>
-                </div>
-                <div style="text-align: center; padding: 1.5rem;">
-                    <div style="width: 80px; height: 80px; background: var(--gradient-3); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">🎓</div>
-                    <h4>Certification</h4>
-                    <p style="font-size: 1.2rem; color: var(--primary-gold); font-weight: 700;">15%</p>
-                    <p style="font-size: 0.9rem; color: var(--rich-brown);">Practitioner training</p>
-                </div>
-                <div style="text-align: center; padding: 1.5rem;">
-                    <div style="width: 80px; height: 80px; background: var(--gradient-1); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">🤝</div>
+            <div class="revenue-streams">
+                <div class="revenue-stream">
+                    <div class="revenue-icon">🤝</div>
                     <h4>Partnerships</h4>
-                    <p style="font-size: 1.2rem; color: var(--primary-gold); font-weight: 700;">10%</p>
+                    <p class="revenue-percentage">10%</p>
                     <p style="font-size: 0.9rem; color: var(--rich-brown);">Brand collaborations</p>
                 </div>
-                <div style="text-align: center; padding: 1.5rem;">
-                    <div style="width: 80px; height: 80px; background: var(--gradient-2); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">🛍️</div>
+                <div class="revenue-stream">
+                    <div class="revenue-icon">🛍️</div>
                     <h4>Products</h4>
-                    <p style="font-size: 1.2rem; color: var(--primary-gold); font-weight: 700;">5%</p>
+                    <p class="revenue-percentage">5%</p>
                     <p style="font-size: 0.9rem; color: var(--rich-brown);">Physical merchandise</p>
                 </div>
             </div>
@@ -981,16 +873,16 @@
     <!-- Team Section -->
     <section id="team" class="team-section">
         <div class="section">
-            <div class="section-header fade-in">
+            <div class="section-header">
                 <h2 class="section-title" style="color: white;">Leadership & Expertise</h2>
                 <p class="section-subtitle" style="color: rgba(255,255,255,0.9);">Dr. Joy Berkheimer brings unique credentials and authentic lived experience</p>
             </div>
             
             <div class="founder-spotlight">
-                <div class="founder-image slide-in-left">
+                <div class="founder-image">
                     👩🏾‍🎓
                 </div>
-                <div class="founder-bio slide-in-right">
+                <div class="founder-bio">
                     <h3>Dr. Joy Berkheimer</h3>
                     <p style="font-size: 1.2rem; margin-bottom: 1.5rem;">
                         Founder & CEO bringing clinical psychology expertise and embodied spirituality to create 
@@ -1013,128 +905,82 @@
                 </div>
             </div>
             
-            <!-- Team Growth Plan -->
-            <div style="background: rgba(255,255,255,0.1); padding: 3rem; border-radius: 20px; margin: 3rem 0;" class="fade-in">
-                <h3 style="color: var(--primary-gold); margin-bottom: 2rem; text-align: center;">Team Development Roadmap</h3>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+            <!-- Key Success Metrics -->
+            <div style="background: rgba(255,255,255,0.1); padding: 3rem; border-radius: 20px; margin: 3rem 0;">
+                <h3 style="color: var(--primary-gold); margin-bottom: 2rem; text-align: center;">Key Success Metrics</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem;">
                     <div style="text-align: center;">
-                        <h4 style="color: white; margin-bottom: 1rem;">Year 1 Team</h4>
-                        <ul style="list-style: none; color: rgba(255,255,255,0.9);">
-                            <li>• Founder/CEO</li>
-                            <li>• Operations Manager</li>
-                            <li>• Content Producer</li>
-                            <li>• Community Manager</li>
-                            <li>• Virtual Assistant</li>
-                        </ul>
+                        <h4 style="color: var(--primary-gold); margin-bottom: 1rem;">Customer Lifetime Value</h4>
+                        <p style="font-size: 1.8rem; font-weight: 700; color: white;">$4,800</p>
+                        <p style="font-size: 0.9rem; color: rgba(255,255,255,0.8);">Core Transformers (3 years)</p>
                     </div>
                     <div style="text-align: center;">
-                        <h4 style="color: white; margin-bottom: 1rem;">Year 2 Expansion</h4>
-                        <ul style="list-style: none; color: rgba(255,255,255,0.9);">
-                            <li>• Marketing Director</li>
-                            <li>• Program Manager</li>
-                            <li>• Additional Producers</li>
-                            <li>• Customer Success</li>
-                        </ul>
+                        <h4 style="color: var(--primary-gold); margin-bottom: 1rem;">Customer Acquisition Cost</h4>
+                        <p style="font-size: 1.8rem; font-weight: 700; color: white;">$68</p>
+                        <p style="font-size: 0.9rem; color: rgba(255,255,255,0.8);">Weighted average all channels</p>
                     </div>
                     <div style="text-align: center;">
-                        <h4 style="color: white; margin-bottom: 1rem;">Year 3 Scale</h4>
-                        <ul style="list-style: none; color: rgba(255,255,255,0.9);">
-                            <li>• Certification Director</li>
-                            <li>• Business Development</li>
-                            <li>• Finance Manager</li>
-                            <li>• Support Staff</li>
-                        </ul>
+                        <h4 style="color: var(--primary-gold); margin-bottom: 1rem;">LTV:CAC Ratio</h4>
+                        <p style="font-size: 1.8rem; font-weight: 700; color: white;">4.1:1</p>
+                        <p style="font-size: 0.9rem; color: rgba(255,255,255,0.8);">Strong unit economics</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <h4 style="color: var(--primary-gold); margin-bottom: 1rem;">Breakeven Timeline</h4>
+                        <p style="font-size: 1.8rem; font-weight: 700; color: white;">7-8</p>
+                        <p style="font-size: 0.9rem; color: rgba(255,255,255,0.8);">Months to profitability</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Product Roadmap -->
+    <!-- Strategic Roadmap -->
     <section id="roadmap" class="section">
-        <div class="section-header fade-in">
+        <div class="section-header">
             <h2 class="section-title">Strategic Roadmap</h2>
             <p class="section-subtitle">Systematic expansion from digital offerings to global certification program</p>
         </div>
         
-        <div class="roadmap">
-            <div class="timeline">
-                <div class="timeline-item fade-in">
-                    <div class="timeline-content">
-                        <h3 style="color: var(--deep-purple); margin-bottom: 1rem;">Phase 1: Foundation (Months 1-12)</h3>
-                        <ul style="color: var(--rich-brown); line-height: 1.8;">
-                            <li>Launch signature course "Embodied Liberation"</li>
-                            <li>Establish The Joy Collective membership community</li>
-                            <li>Develop YouTube content strategy (2x weekly)</li>
-                            <li>Host quarterly virtual workshops</li>
-                            <li>Design certification program framework</li>
-                        </ul>
-                        <div style="margin-top: 1rem; padding: 1rem; background: var(--soft-pink); border-radius: 10px;">
-                            <strong>Target: 1,500 community members, $800K revenue</strong>
-                        </div>
-                    </div>
-                    <div class="timeline-marker"></div>
-                </div>
-                
-                <div class="timeline-item fade-in">
-                    <div class="timeline-content">
-                        <h3 style="color: var(--deep-purple); margin-bottom: 1rem;">Phase 2: Expansion (Months 13-24)</h3>
-                        <ul style="color: var(--rich-brown); line-height: 1.8;">
-                            <li>Launch certification program for practitioners</li>
-                            <li>Expand to 2-3 annual in-person retreats</li>
-                            <li>Develop second signature course</li>
-                            <li>Begin physical products line</li>
-                            <li>Establish strategic brand partnerships</li>
-                        </ul>
-                        <div style="margin-top: 1rem; padding: 1rem; background: var(--soft-pink); border-radius: 10px;">
-                            <strong>Target: 4,000 members, 50+ certified practitioners, $1.8M revenue</strong>
-                        </div>
-                    </div>
-                    <div class="timeline-marker"></div>
-                </div>
-                
-                <div class="timeline-item fade-in">
-                    <div class="timeline-content">
-                        <h3 style="color: var(--deep-purple); margin-bottom: 1rem;">Phase 3: Scale (Months 25-36)</h3>
-                        <ul style="color: var(--rich-brown); line-height: 1.8;">
-                            <li>Develop physical location concept</li>
-                            <li>Launch licensing program for institutions</li>
-                            <li>Expand to 100+ certified facilitators</li>
-                            <li>Develop B2B corporate wellness offerings</li>
-                            <li>Create scalable train-the-trainer program</li>
-                        </ul>
-                        <div style="margin-top: 1rem; padding: 1rem; background: var(--soft-pink); border-radius: 10px;">
-                            <strong>Target: 10,000 members, 200+ practitioners, $4M+ revenue</strong>
-                        </div>
-                    </div>
-                    <div class="timeline-marker"></div>
+        <div class="roadmap-grid">
+            <div class="roadmap-phase">
+                <h3>Phase 1: Foundation (Months 1-12)</h3>
+                <ul>
+                    <li>Launch signature course "Embodied Liberation"</li>
+                    <li>Establish The Joy Collective membership community</li>
+                    <li>Develop YouTube content strategy (2x weekly)</li>
+                    <li>Host quarterly virtual workshops</li>
+                    <li>Design certification program framework</li>
+                </ul>
+                <div class="phase-target">
+                    <strong>Target: 1,500 community members, $800K revenue</strong>
                 </div>
             </div>
-        </div>
-        
-        <!-- Key Success Metrics -->
-        <div style="background: linear-gradient(135deg, var(--soft-pink) 0%, white 100%); padding: 3rem; border-radius: 20px; margin: 3rem 0;" class="fade-in">
-            <h3 style="color: var(--deep-purple); margin-bottom: 2rem; text-align: center;">Key Success Metrics</h3>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem;">
-                <div style="text-align: center; padding: 1.5rem;">
-                    <h4 style="color: var(--primary-gold); margin-bottom: 1rem;">Customer Lifetime Value</h4>
-                    <p style="font-size: 1.8rem; font-weight: 700; color: var(--deep-purple);">$4,800</p>
-                    <p style="font-size: 0.9rem; color: var(--rich-brown);">Core Transformers (3 years)</p>
+            
+            <div class="roadmap-phase">
+                <h3>Phase 2: Expansion (Months 13-24)</h3>
+                <ul>
+                    <li>Launch certification program for practitioners</li>
+                    <li>Expand to 2-3 annual in-person retreats</li>
+                    <li>Develop second signature course</li>
+                    <li>Begin physical products line</li>
+                    <li>Establish strategic brand partnerships</li>
+                </ul>
+                <div class="phase-target">
+                    <strong>Target: 4,000 members, 50+ certified practitioners, $1.8M revenue</strong>
                 </div>
-                <div style="text-align: center; padding: 1.5rem;">
-                    <h4 style="color: var(--primary-gold); margin-bottom: 1rem;">Customer Acquisition Cost</h4>
-                    <p style="font-size: 1.8rem; font-weight: 700; color: var(--deep-purple);">$68</p>
-                    <p style="font-size: 0.9rem; color: var(--rich-brown);">Weighted average all channels</p>
-                </div>
-                <div style="text-align: center; padding: 1.5rem;">
-                    <h4 style="color: var(--primary-gold); margin-bottom: 1rem;">LTV:CAC Ratio</h4>
-                    <p style="font-size: 1.8rem; font-weight: 700; color: var(--deep-purple);">4.1:1</p>
-                    <p style="font-size: 0.9rem; color: var(--rich-brown);">Strong unit economics</p>
-                </div>
-                <div style="text-align: center; padding: 1.5rem;">
-                    <h4 style="color: var(--primary-gold); margin-bottom: 1rem;">Breakeven Timeline</h4>
-                    <p style="font-size: 1.8rem; font-weight: 700; color: var(--deep-purple);">7-8</p>
-                    <p style="font-size: 0.9rem; color: var(--rich-brown);">Months to profitability</p>
+            </div>
+            
+            <div class="roadmap-phase">
+                <h3>Phase 3: Scale (Months 25-36)</h3>
+                <ul>
+                    <li>Develop physical location concept</li>
+                    <li>Launch licensing program for institutions</li>
+                    <li>Expand to 100+ certified facilitators</li>
+                    <li>Develop B2B corporate wellness offerings</li>
+                    <li>Create scalable train-the-trainer program</li>
+                </ul>
+                <div class="phase-target">
+                    <strong>Target: 10,000 members, 200+ practitioners, $4M+ revenue</strong>
                 </div>
             </div>
         </div>
@@ -1143,12 +989,12 @@
     <!-- Contact Section -->
     <section id="contact" class="contact-section">
         <div class="section">
-            <div class="section-header fade-in">
+            <div class="section-header">
                 <h2 class="section-title">Partner With Us</h2>
                 <p class="section-subtitle">Join us in revolutionizing wellness through culturally authentic embodiment</p>
             </div>
             
-            <div class="contact-form fade-in">
+            <div class="contact-form">
                 <h3 style="color: var(--deep-purple); margin-bottom: 2rem;">Investment & Partnership Opportunities</h3>
                 
                 <form id="contactForm">
@@ -1169,7 +1015,7 @@
                     
                     <div class="form-group">
                         <label for="interest">Interest Area</label>
-                        <select id="interest" name="interest" style="width: 100%; padding: 1rem; border: 2px solid #eee; border-radius: 10px;">
+                        <select id="interest" name="interest">
                             <option value="">Select your interest</option>
                             <option value="investment">Investment Opportunity</option>
                             <option value="partnership">Strategic Partnership</option>
@@ -1190,11 +1036,11 @@
                 <div style="margin-top: 3rem; padding: 2rem; background: var(--soft-pink); border-radius: 15px;">
                     <h4 style="color: var(--deep-purple); margin-bottom: 1rem;">Investment Highlights</h4>
                     <ul style="color: var(--rich-brown); line-height: 1.8;">
-                        <li>• $340K Year 1 investment with 3.4x blended ROI</li>
-                        <li>• Scalable digital-first business model</li>
-                        <li>• Experienced founder with clinical credentials</li>
-                        <li>• Clear path to certification program expansion</li>
-                        <li>• Underserved market with high growth potential</li>
+                        <li>$340K Year 1 investment with 3.4x blended ROI</li>
+                        <li>Scalable digital-first business model</li>
+                        <li>Experienced founder with clinical credentials</li>
+                        <li>Clear path to certification program expansion</li>
+                        <li>Underserved market with high growth potential</li>
                     </ul>
                 </div>
             </div>
@@ -1202,16 +1048,16 @@
     </section>
 
     <!-- Footer -->
-    <footer style="background: var(--deep-purple); color: white; padding: 3rem 0; text-align: center;">
+    <footer>
         <div class="section">
             <h3 style="color: var(--primary-gold); margin-bottom: 1rem;">Glow Your Goddess</h3>
             <p style="margin-bottom: 2rem; opacity: 0.9;">Embodied Liberation Through Culturally Rooted Sensuality</p>
             
-            <div style="display: flex; justify-content: center; gap: 2rem; margin: 2rem 0;">
-                <a href="#" style="color: white; text-decoration: none; opacity: 0.8; transition: opacity 0.3s ease;">YouTube</a>
-                <a href="#" style="color: white; text-decoration: none; opacity: 0.8; transition: opacity 0.3s ease;">Instagram</a>
-                <a href="#" style="color: white; text-decoration: none; opacity: 0.8; transition: opacity 0.3s ease;">LinkedIn</a>
-                <a href="#" style="color: white; text-decoration: none; opacity: 0.8; transition: opacity 0.3s ease;">Contact</a>
+            <div class="footer-links">
+                <a href="#">YouTube</a>
+                <a href="#">Instagram</a>
+                <a href="#">LinkedIn</a>
+                <a href="#">Contact</a>
             </div>
             
             <p style="opacity: 0.7; font-size: 0.9rem;">© 2025 Glow Your Goddess. Business Plan prepared by Wavelaunch Studio.</p>
@@ -1219,131 +1065,17 @@
     </footer>
 
     <script>
-        // Initialize GSAP
-        gsap.registerPlugin(ScrollTrigger);
+        // Simple, reliable JavaScript with no complex animations
 
-        // Loader functionality with fallback
-        let loaderHidden = false;
-        
-        function hideLoader() {
-            if (loaderHidden) return;
-            loaderHidden = true;
-            
-            const loader = document.getElementById("loader");
-            loader.style.opacity = "0";
-            setTimeout(function() {
-                loader.style.display = "none";
-                initAnimations();
-                initCharts();
-            }, 500);
-        }
-
-        // Multiple triggers to ensure loader hides
-        window.addEventListener("load", function() {
-            setTimeout(hideLoader, 1500);
-        });
-
-        // Fallback in case window.load doesn't fire
+        // Smooth scrolling for navigation
         document.addEventListener("DOMContentLoaded", function() {
-            setTimeout(hideLoader, 2000);
-        });
-
-        // Ultimate fallback
-        setTimeout(hideLoader, 3000);
-
-        // Navigation scroll effect
-        window.addEventListener("scroll", function() {
-            const navbar = document.getElementById("navbar");
-            if (window.scrollY > 100) {
-                navbar.classList.add("scrolled");
-            } else {
-                navbar.classList.remove("scrolled");
-            }
-        });
-
-        // Counter animation - simplified
-        function animateCounters() {
-            const counters = document.querySelectorAll('.counter');
-            
-            counters.forEach(counter => {
-                const target = parseInt(counter.getAttribute('data-target'));
-                let current = 0;
-                const increment = target / 100; // Simplified calculation
-                
-                const timer = setInterval(() => {
-                    current += increment;
-                    if (current >= target) {
-                        current = target;
-                        clearInterval(timer);
-                    }
-                    
-                    if (target > 1000) {
-                        counter.textContent = (current / 1000).toFixed(1) + "K";
-                    } else if (target < 10) {
-                        counter.textContent = current.toFixed(1);
-                    } else {
-                        counter.textContent = Math.floor(current);
-                    }
-                }, 20);
-            });
-        }
-
-        // Scroll animations - simplified and more reliable
-        function initAnimations() {
-            try {
-                // Hero animations
-                const heroTitle = document.getElementById('hero-title');
-                const heroSubtitle = document.querySelector('.hero-subtitle');
-                const heroStats = document.querySelector('.hero-stats');
-                const ctaButtons = document.querySelector('.cta-buttons');
-
-                if (heroTitle) {
-                    gsap.set([heroTitle, heroSubtitle, heroStats, ctaButtons], {opacity: 0, y: 50});
-                    
-                    gsap.timeline()
-                        .to(heroTitle, { opacity: 1, y: 0, duration: 1, ease: "power2.out" })
-                        .to(heroSubtitle, { opacity: 1, y: 0, duration: 1, ease: "power2.out" }, "-=0.5")
-                        .to(heroStats, { opacity: 1, y: 0, duration: 1, ease: "power2.out" }, "-=0.5")
-                        .to(ctaButtons, { opacity: 1, y: 0, duration: 1, ease: "power2.out" }, "-=0.5")
-                        .call(animateCounters);
-                }
-
-                // Simple scroll animations
-                const animatedElements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right');
-                animatedElements.forEach(element => {
-                    gsap.fromTo(element, 
-                        { opacity: 0, y: 30 },
-                        {
-                            opacity: 1,
-                            y: 0,
-                            duration: 0.8,
-                            ease: "power2.out",
-                            scrollTrigger: {
-                                trigger: element,
-                                start: "top 85%",
-                                toggleActions: "play none none none"
-                            }
-                        }
-                    );
-                });
-            } catch (error) {
-                console.log("GSAP animations skipped - GSAP not available");
-                // Fallback: just show content
-                const allAnimatedElements = document.querySelectorAll(".fade-in, .slide-in-left, .slide-in-right");
-                allAnimatedElements.forEach(function(el) {
-                    el.style.opacity = "1";
-                    el.style.transform = "none";
-                });
-                animateCounters();
-            }
-        }
-
-        // Smooth scrolling for navigation links
-        document.addEventListener("DOMContentLoaded", function() {
-            document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
-                anchor.addEventListener("click", function (e) {
+            // Navigation smooth scroll
+            const navLinks = document.querySelectorAll('a[href^="#"]');
+            navLinks.forEach(function(link) {
+                link.addEventListener("click", function(e) {
                     e.preventDefault();
-                    const target = document.querySelector(this.getAttribute("href"));
+                    const targetId = this.getAttribute("href");
+                    const target = document.querySelector(targetId);
                     if (target) {
                         target.scrollIntoView({
                             behavior: "smooth",
@@ -1352,144 +1084,130 @@
                     }
                 });
             });
-        });
 
-        // Charts initialization
-        function initCharts() {
-            // Growth Chart
-            const growthCtx = document.getElementById('growthChart');
-            if (growthCtx) {
-                new Chart(growthCtx, {
-                    type: 'line',
-                    data: {
-                        labels: ['Digital Wellness', 'Sexual Empowerment', 'Cultural Wellness', 'Embodiment Practices'],
-                        datasets: [{
-                            label: 'CAGR (%)',
-                            data: [25, 18, 22, 15],
-                            borderColor: '#667eea',
-                            backgroundColor: 'rgba(102, 126, 234, 0.1)',
-                            borderWidth: 3,
-                            fill: true,
-                            tension: 0.4
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        plugins: {
-                            legend: {
-                                display: false
-                            }
-                        },
-                        scales: {
-                            y: {
-                                beginAtZero: true,
-                                max: 30,
-                                ticks: {
-                                    callback: function(value) {
-                                        return value + '%';
-                                    }
-                                }
-                            }
-                        }
-                    }
-                });
-            }
-
-            // Revenue Chart
-            const revenueCtx = document.getElementById('revenueChart');
-            if (revenueCtx) {
-                new Chart(revenueCtx, {
-                    type: 'bar',
-                    data: {
-                        labels: ['Year 1', 'Year 2', 'Year 3'],
-                        datasets: [
-                            {
-                                label: 'Digital Courses',
-                                data: [390, 620, 928],
-                                backgroundColor: '#667eea',
-                                borderRadius: 5
-                            },
-                            {
-                                label: 'Membership',
-                                data: [181, 382, 605],
-                                backgroundColor: '#f093fb',
-                                borderRadius: 5
-                            },
-                            {
-                                label: 'Events & Retreats',
-                                data: [110, 280, 450],
-                                backgroundColor: '#4facfe',
-                                borderRadius: 5
-                            },
-                            {
-                                label: 'Certification',
-                                data: [0, 240, 480],
-                                backgroundColor: '#D4AF37',
-                                borderRadius: 5
-                            },
-                            {
-                                label: 'Other',
-                                data: [110, 180, 288],
-                                backgroundColor: '#FF6B6B',
-                                borderRadius: 5
-                            }
-                        ]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        plugins: {
-                            legend: {
-                                position: 'top'
-                            }
-                        },
-                        scales: {
-                            x: {
-                                stacked: true
-                            },
-                            y: {
-                                stacked: true,
-                                ticks: {
-                                    callback: function(value) {
-                                        return ' + value + 'K';
-                                    }
-                                }
-                            }
-                        }
-                    }
-                });
-            }
-        }
-
-        // Form submission
-        document.addEventListener('DOMContentLoaded', function() {
-            const contactForm = document.getElementById('contactForm');
+            // Form submission
+            const contactForm = document.getElementById("contactForm");
             if (contactForm) {
-                contactForm.addEventListener('submit', function(e) {
+                contactForm.addEventListener("submit", function(e) {
                     e.preventDefault();
                     
-                    // Simulate form submission
                     const button = this.querySelector('button[type="submit"]');
                     const originalText = button.textContent;
                     
                     button.textContent = "Sending...";
                     button.disabled = true;
                     
-                    setTimeout(() => {
+                    setTimeout(function() {
                         button.textContent = "Message Sent! ✓";
                         button.style.background = "#4CAF50";
                         
-                        setTimeout(() => {
+                        setTimeout(function() {
                             button.textContent = originalText;
                             button.disabled = false;
                             button.style.background = "";
-                            this.reset();
+                            contactForm.reset();
                         }, 3000);
                     }, 1000);
                 });
             }
+
+            // Initialize chart after a delay to ensure Chart.js loads
+            setTimeout(initChart, 1000);
+        });
+
+        // Simple chart initialization
+        function initChart() {
+            const ctx = document.getElementById("revenueChart");
+            if (ctx && typeof Chart !== "undefined") {
+                try {
+                    new Chart(ctx, {
+                        type: "bar",
+                        data: {
+                            labels: ["Year 1", "Year 2", "Year 3"],
+                            datasets: [
+                                {
+                                    label: "Digital Courses",
+                                    data: [390, 620, 928],
+                                    backgroundColor: "#667eea"
+                                },
+                                {
+                                    label: "Membership",
+                                    data: [181, 382, 605],
+                                    backgroundColor: "#f093fb"
+                                },
+                                {
+                                    label: "Events & Retreats",
+                                    data: [110, 280, 450],
+                                    backgroundColor: "#4facfe"
+                                },
+                                {
+                                    label: "Certification",
+                                    data: [0, 240, 480],
+                                    backgroundColor: "#D4AF37"
+                                },
+                                {
+                                    label: "Other",
+                                    data: [110, 180, 288],
+                                    backgroundColor: "#FF6B6B"
+                                }
+                            ]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            plugins: {
+                                legend: {
+                                    position: "top"
+                                }
+                            },
+                            scales: {
+                                x: {
+                                    stacked: true
+                                },
+                                y: {
+                                    stacked: true,
+                                    ticks: {
+                                        callback: function(value) {
+                                            return "$" + value + "K";
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    });
+                } catch (error) {
+                    console.log("Chart initialization failed, but site continues to work");
+                }
+            }
+        }
+
+        // Simple navbar scroll effect
+        window.addEventListener("scroll", function() {
+            const navbar = document.querySelector("nav");
+            if (window.scrollY > 50) {
+                navbar.style.background = "rgba(255, 248, 240, 0.98)";
+            } else {
+                navbar.style.background = "rgba(255, 248, 240, 0.95)";
+            }
         });
     </script>
 </body>
-</html>
+</html>📚</div>
+                    <h4>Digital Courses</h4>
+                    <p class="revenue-percentage">42%</p>
+                    <p style="font-size: 0.9rem; color: var(--rich-brown);">Premium transformation programs</p>
+                </div>
+                <div class="revenue-stream">
+                    <div class="revenue-icon">👥</div>
+                    <h4>Community</h4>
+                    <p class="revenue-percentage">28%</p>
+                    <p style="font-size: 0.9rem; color: var(--rich-brown);">Membership & group programs</p>
+                </div>
+                <div class="revenue-stream">
+                    <div class="revenue-icon">🎓</div>
+                    <h4>Certification</h4>
+                    <p class="revenue-percentage">15%</p>
+                    <p style="font-size: 0.9rem; color: var(--rich-brown);">Practitioner training</p>
+                </div>
+                <div class="revenue-stream">
+                    <div class="revenue-icon">
