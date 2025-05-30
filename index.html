@@ -3,338 +3,1489 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Business Plan Template</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <title>Glow Your Goddess - Embodied Liberation Through Culturally Rooted Sensuality</title>
+    <meta name="description" content="Dr. Joy Berkheimer's revolutionary approach to embodied wellness for women of color. Discover liberation through culturally rooted sensuality and spiritual connection.">
+    
+    <!-- External Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
     <style>
-        .hero-gradient {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        .glass-card {
-            background: rgba(255, 255, 255, 0.1);
+
+        :root {
+            --primary-gold: #D4AF37;
+            --deep-purple: #4A148C;
+            --warm-coral: #FF6B6B;
+            --soft-pink: #FFE5E5;
+            --rich-brown: #5D4037;
+            --cream: #FFF8F0;
+            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --shadow-soft: 0 10px 30px rgba(0,0,0,0.1);
+            --shadow-hover: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+            background: var(--cream);
+        }
+
+        /* Loading Animation */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--deep-purple), var(--primary-gold));
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .loader-content {
+            text-align: center;
+            color: white;
+        }
+
+        .loader h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .loader-bar {
+            width: 200px;
+            height: 4px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .loader-progress {
+            width: 0%;
+            height: 100%;
+            background: white;
+            border-radius: 2px;
+            animation: loadProgress 2s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes loadProgress {
+            to { width: 100%; }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 248, 240, 0.95);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 1rem 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
         }
-        .animate-float {
-            animation: float 6s ease-in-out infinite;
+
+        nav.scrolled {
+            background: rgba(255, 248, 240, 0.98);
+            box-shadow: var(--shadow-soft);
         }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--deep-purple);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--rich-brown);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-gold);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--deep-purple) 0%, var(--primary-gold) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="0.5" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.8" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            animation: float 20s ease-in-out infinite;
+        }
+
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-20px); }
         }
-        .metric-counter {
-            font-size: 3rem;
-            font-weight: bold;
-            color: #667eea;
+
+        .hero-content {
+            max-width: 800px;
+            z-index: 2;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            margin-bottom: 2rem;
+            opacity: 0;
+            transform: translateY(50px);
+            font-weight: 300;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            display: block;
+            color: var(--primary-gold);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--deep-purple);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--deep-purple);
+            transform: translateY(-2px);
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 5rem 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            color: var(--deep-purple);
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--rich-brown);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Executive Summary */
+        .executive-summary {
+            background: linear-gradient(135deg, var(--soft-pink) 0%, white 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 2rem 0;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .summary-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow-soft);
+            transition: transform 0.3s ease;
+        }
+
+        .summary-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .summary-card h3 {
+            color: var(--deep-purple);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        /* Value Proposition */
+        .value-props {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .value-prop {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: var(--shadow-soft);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .value-prop::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-1);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .value-prop:hover::before {
+            transform: scaleX(1);
+        }
+
+        .value-prop:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .value-prop-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-1);
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .value-prop h3 {
+            color: var(--deep-purple);
+            margin-bottom: 1rem;
+        }
+
+        /* Market Analysis */
+        .market-section {
+            background: linear-gradient(135deg, #f8f9ff 0%, #e8f2ff 100%);
+            padding: 5rem 0;
+            margin: 3rem 0;
+        }
+
+        .market-visual {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .chart-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow-soft);
+            text-align: center;
+        }
+
+        .chart-container h3 {
+            color: var(--deep-purple);
+            margin-bottom: 1rem;
+        }
+
+        .market-size {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .market-circle {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            font-weight: 700;
+            position: relative;
+        }
+
+        .tam { background: var(--gradient-1); }
+        .sam { background: var(--gradient-2); }
+        .som { background: var(--gradient-3); }
+
+        /* Financial Projections */
+        .financial-dashboard {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: var(--shadow-soft);
+            margin: 3rem 0;
+        }
+
+        .revenue-chart {
+            margin: 2rem 0;
+            height: 400px;
+        }
+
+        .financial-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .metric-card {
+            background: linear-gradient(135deg, var(--soft-pink) 0%, white 100%);
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .metric-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--deep-purple);
+        }
+
+        .metric-label {
+            color: var(--rich-brown);
+            font-size: 0.9rem;
+        }
+
+        /* Team Section */
+        .team-section {
+            background: linear-gradient(135deg, var(--deep-purple) 0%, var(--primary-gold) 100%);
+            color: white;
+            padding: 5rem 0;
+            margin: 3rem 0;
+        }
+
+        .founder-spotlight {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+            margin: 3rem 0;
+        }
+
+        .founder-image {
+            width: 300px;
+            height: 300px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            margin: 0 auto;
+        }
+
+        .founder-bio h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary-gold);
+        }
+
+        .credentials {
+            display: flex;
+            gap: 1rem;
+            margin: 1rem 0;
+            flex-wrap: wrap;
+        }
+
+        .credential-badge {
+            background: rgba(255,255,255,0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Product Roadmap */
+        .roadmap {
+            margin: 3rem 0;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--primary-gold);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            display: flex;
+            margin: 2rem 0;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            width: 45%;
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow-soft);
+            position: relative;
+        }
+
+        .timeline-marker {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+            background: var(--primary-gold);
+            border-radius: 50%;
+            border: 4px solid var(--cream);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: linear-gradient(135deg, var(--soft-pink) 0%, white 100%);
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .form-group {
+            margin: 1.5rem 0;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--rich-brown);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #eee;
+            border-radius: 10px;
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-gold);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero-stats {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .founder-spotlight {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .timeline::before {
+                left: 20px;
+            }
+            
+            .timeline-item {
+                flex-direction: column;
+            }
+            
+            .timeline-content {
+                width: calc(100% - 60px);
+                margin-left: 40px;
+            }
+            
+            .timeline-marker {
+                left: 20px;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.6s ease;
+        }
+
+        .slide-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.6s ease;
+        }
+
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Counter Animation */
+        .counter {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-gold);
         }
     </style>
 </head>
-<body class="bg-gray-50">
-    <!-- Hero Section -->
-    <section class="hero-gradient min-h-screen flex items-center justify-center text-white relative overflow-hidden">
-        <div class="absolute inset-0 bg-black opacity-20"></div>
-        <div class="container mx-auto px-6 text-center relative z-10">
-            <h1 class="text-6xl font-bold mb-6 animate-fade-in">
-                Revolutionary Business Plan
-            </h1>
-            <p class="text-xl mb-8 opacity-90">
-                Transforming industries through innovation and strategic excellence
-            </p>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-                <div class="glass-card p-6 rounded-lg animate-float">
-                    <div class="metric-counter text-white" id="revenue-counter">$0</div>
-                    <p class="text-lg">Projected Revenue</p>
-                </div>
-                <div class="glass-card p-6 rounded-lg animate-float" style="animation-delay: 2s;">
-                    <div class="metric-counter text-white" id="market-counter">0%</div>
-                    <p class="text-lg">Market Share</p>
-                </div>
-                <div class="glass-card p-6 rounded-lg animate-float" style="animation-delay: 4s;">
-                    <div class="metric-counter text-white" id="growth-counter">0x</div>
-                    <p class="text-lg">Growth Multiplier</p>
-                </div>
-            </div>
-            <div class="mt-12">
-                <button class="bg-white text-purple-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-all transform hover:scale-105 mr-4">
-                    View Full Plan
-                </button>
-                <button class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-purple-600 transition-all transform hover:scale-105">
-                    Schedule Meeting
-                </button>
+<body>
+    <!-- Loader -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <h1>Glow Your Goddess</h1>
+            <div class="loader-bar">
+                <div class="loader-progress"></div>
             </div>
         </div>
-        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-            </svg>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo">Glow Your Goddess</a>
+            <ul class="nav-links">
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#market">Market</a></li>
+                <li><a href="#financials">Financials</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#roadmap">Roadmap</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 id="hero-title">Glow Your Goddess</h1>
+            <p class="hero-subtitle">Embodied Liberation Through Culturally Rooted Sensuality</p>
+            
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number counter" data-target="215">0</span>
+                    <span class="stat-label">Billion Market</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number counter" data-target="4.2">0</span>
+                    <span class="stat-label">Million Revenue Y5</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number counter" data-target="42">0</span>
+                    <span class="stat-label">% Profit Margin</span>
+                </div>
+            </div>
+            
+            <div class="cta-buttons">
+                <a href="#overview" class="btn btn-primary">Explore Vision</a>
+                <a href="#contact" class="btn btn-secondary">Partner With Us</a>
+            </div>
         </div>
     </section>
 
     <!-- Executive Summary -->
-    <section class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-16 text-gray-800">Executive Summary</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-xl hover:shadow-lg transition-all transform hover:scale-105">
-                    <div class="w-12 h-12 bg-blue-500 rounded-lg mb-4 flex items-center justify-center">
-                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Innovation Focus</h3>
-                    <p class="text-gray-600">Cutting-edge solutions that redefine industry standards and customer expectations.</p>
+    <section id="overview" class="section">
+        <div class="section-header fade-in">
+            <h2 class="section-title">Executive Summary</h2>
+            <p class="section-subtitle">Revolutionizing wellness through culturally authentic embodiment practices</p>
+        </div>
+        
+        <div class="executive-summary fade-in">
+            <p style="font-size: 1.1rem; line-height: 1.8; color: var(--rich-brown);">
+                Dr. Joy Berkheimer's Glow Your Goddess brand is positioned at the powerful intersection of embodied spirituality, 
+                sensual wellness, and cultural empowerment. Our comprehensive analysis reveals significant potential to scale 
+                this uniquely positioned brand, capitalizing on three converging market trends: the rapid growth of holistic 
+                wellness, increasing demand for culturally authentic healing modalities, and the expansion of digital wellness platforms.
+            </p>
+            
+            <div class="summary-grid">
+                <div class="summary-card slide-in-left">
+                    <h3>🎯 Target Market</h3>
+                    <p>Professional women of color, ages 28-42, seeking authentic approaches to sensual wellness that honor their cultural identity and lived experiences.</p>
                 </div>
-                <div class="bg-gradient-to-br from-green-50 to-green-100 p-8 rounded-xl hover:shadow-lg transition-all transform hover:scale-105">
-                    <div class="w-12 h-12 bg-green-500 rounded-lg mb-4 flex items-center justify-center">
-                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Market Growth</h3>
-                    <p class="text-gray-600">Positioned in rapidly expanding markets with significant untapped potential.</p>
+                
+                <div class="summary-card slide-in-right">
+                    <h3>💰 Revenue Potential</h3>
+                    <p>Year 1: $420K (22% margin)<br>Year 3: $1.6M (35% margin)<br>Year 5: $4.2M (42% margin)</p>
                 </div>
-                <div class="bg-gradient-to-br from-purple-50 to-purple-100 p-8 rounded-xl hover:shadow-lg transition-all transform hover:scale-105">
-                    <div class="w-12 h-12 bg-purple-500 rounded-lg mb-4 flex items-center justify-center">
-                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Expert Team</h3>
-                    <p class="text-gray-600">World-class leadership with proven track records in scaling successful ventures.</p>
+                
+                <div class="summary-card slide-in-left">
+                    <h3>🌟 Unique Position</h3>
+                    <p>Integration of clinical psychology expertise with sensual yoga, tantra, and erotic embodiment practices designed specifically for marginalized communities.</p>
                 </div>
-                <div class="bg-gradient-to-br from-orange-50 to-orange-100 p-8 rounded-xl hover:shadow-lg transition-all transform hover:scale-105">
-                    <div class="w-12 h-12 bg-orange-500 rounded-lg mb-4 flex items-center justify-center">
-                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Revenue Model</h3>
-                    <p class="text-gray-600">Multiple revenue streams ensuring sustainable growth and profitability.</p>
+                
+                <div class="summary-card slide-in-right">
+                    <h3>📈 Market Opportunity</h3>
+                    <p>$215B total addressable market with $28.4B serviceable available market for culturally-specific wellness offerings.</p>
                 </div>
+            </div>
+        </div>
+        
+        <!-- Value Propositions -->
+        <div class="value-props">
+            <div class="value-prop fade-in">
+                <div class="value-prop-icon">🌺</div>
+                <h3>Sacred Sensuality</h3>
+                <p>Pleasure-positive, body-honoring approaches that integrate spirituality with sensual embodiment.</p>
+            </div>
+            
+            <div class="value-prop fade-in">
+                <div class="value-prop-icon">🌍</div>
+                <h3>Cultural Authenticity</h3>
+                <p>Decolonized practices rooted in ancestral wisdom with inclusive representation.</p>
+            </div>
+            
+            <div class="value-prop fade-in">
+                <div class="value-prop-icon">✨</div>
+                <h3>Embodied Transformation</h3>
+                <p>Experiential learning through somatic healing and sustainable life changes.</p>
+            </div>
+            
+            <div class="value-prop fade-in">
+                <div class="value-prop-icon">💖</div>
+                <h3>Joy-Centered Liberation</h3>
+                <p>Celebratory approach to radical self-love and authentic expression.</p>
             </div>
         </div>
     </section>
 
     <!-- Market Analysis -->
-    <section class="py-20 bg-gray-100">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-16 text-gray-800">Market Analysis</h2>
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                <div class="bg-white p-8 rounded-xl shadow-lg">
-                    <h3 class="text-2xl font-semibold mb-6 text-gray-800">Market Size Projection</h3>
-                    <canvas id="marketChart" width="400" height="300"></canvas>
+    <section id="market" class="market-section">
+        <div class="section">
+            <div class="section-header fade-in">
+                <h2 class="section-title">Market Opportunity</h2>
+                <p class="section-subtitle">Positioned at the intersection of massive, growing market segments</p>
+            </div>
+            
+            <div class="market-visual">
+                <div class="chart-container fade-in">
+                    <h3>Market Size Analysis</h3>
+                    <div class="market-size">
+                        <div class="market-circle tam">
+                            <div>
+                                <div>$215B</div>
+                                <div style="font-size: 0.8rem;">TAM</div>
+                            </div>
+                        </div>
+                        <div class="market-circle sam">
+                            <div>
+                                <div>$28.4B</div>
+                                <div style="font-size: 0.8rem;">SAM</div>
+                            </div>
+                        </div>
+                        <div class="market-circle som">
+                            <div>
+                                <div>$14.2M</div>
+                                <div style="font-size: 0.8rem;">SOM Y3</div>
+                            </div>
+                        </div>
+                    </div>
+                    <p style="margin-top: 1rem; color: var(--rich-brown);">
+                        Total Addressable Market → Serviceable Available Market → Serviceable Obtainable Market
+                    </p>
                 </div>
-                <div class="bg-white p-8 rounded-xl shadow-lg">
-                    <h3 class="text-2xl font-semibold mb-6 text-gray-800">Competitive Landscape</h3>
-                    <canvas id="competitorChart" width="400" height="300"></canvas>
+                
+                <div class="chart-container fade-in">
+                    <h3>Growth Trends</h3>
+                    <canvas id="growthChart" width="400" height="300"></canvas>
+                </div>
+            </div>
+            
+            <div style="background: white; padding: 3rem; border-radius: 20px; box-shadow: var(--shadow-soft); margin: 3rem 0;" class="fade-in">
+                <h3 style="color: var(--deep-purple); margin-bottom: 2rem; text-align: center;">Competitive Advantage Matrix</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                    <div style="text-align: center; padding: 1.5rem;">
+                        <h4 style="color: var(--primary-gold); margin-bottom: 1rem;">Cultural Relevance</h4>
+                        <div style="width: 100%; height: 20px; background: #eee; border-radius: 10px; overflow: hidden;">
+                            <div style="width: 85%; height: 100%; background: var(--gradient-2);"></div>
+                        </div>
+                        <p style="margin-top: 0.5rem; font-size: 0.9rem;">HIGH - Few competitors address cultural conditioning</p>
+                    </div>
+                    
+                    <div style="text-align: center; padding: 1.5rem;">
+                        <h4 style="color: var(--primary-gold); margin-bottom: 1rem;">Academic Credibility</h4>
+                        <div style="width: 100%; height: 20px; background: #eee; border-radius: 10px; overflow: hidden;">
+                            <div style="width: 70%; height: 100%; background: var(--gradient-1);"></div>
+                        </div>
+                        <p style="margin-top: 0.5rem; font-size: 0.9rem;">MEDIUM - PhD + embodied practice combination</p>
+                    </div>
+                    
+                    <div style="text-align: center; padding: 1.5rem;">
+                        <h4 style="color: var(--primary-gold); margin-bottom: 1rem;">Sensuality Focus</h4>
+                        <div style="width: 100%; height: 20px; background: #eee; border-radius: 10px; overflow: hidden;">
+                            <div style="width: 90%; height: 100%; background: var(--gradient-3);"></div>
+                        </div>
+                        <p style="margin-top: 0.5rem; font-size: 0.9rem;">HIGH - Most wellness platforms avoid explicit sensuality</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Financial Projections -->
-    <section class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-16 text-gray-800">Financial Projections</h2>
-            <div class="bg-gradient-to-r from-blue-50 to-purple-50 p-8 rounded-xl shadow-lg">
-                <canvas id="revenueChart" width="800" height="400"></canvas>
+    <section id="financials" class="section">
+        <div class="section-header fade-in">
+            <h2 class="section-title">Financial Projections</h2>
+            <p class="section-subtitle">Strong growth trajectory with healthy margins and diversified revenue streams</p>
+        </div>
+        
+        <div class="financial-dashboard fade-in">
+            <h3 style="color: var(--deep-purple); margin-bottom: 2rem; text-align: center;">3-Year Revenue Forecast</h3>
+            <div class="revenue-chart">
+                <canvas id="revenueChart"></canvas>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-                <div class="text-center p-6 bg-white rounded-xl shadow-lg border-t-4 border-green-500">
-                    <h4 class="text-lg font-semibold text-gray-800 mb-2">Year 1 Revenue</h4>
-                    <p class="text-3xl font-bold text-green-600">$2.5M</p>
+            
+            <div class="financial-metrics">
+                <div class="metric-card">
+                    <div class="metric-value counter" data-target="791">0</div>
+                    <div class="metric-label">Year 1 Revenue ($K)</div>
                 </div>
-                <div class="text-center p-6 bg-white rounded-xl shadow-lg border-t-4 border-blue-500">
-                    <h4 class="text-lg font-semibold text-gray-800 mb-2">Year 3 Revenue</h4>
-                    <p class="text-3xl font-bold text-blue-600">$15M</p>
+                <div class="metric-card">
+                    <div class="metric-value counter" data-target="1702">0</div>
+                    <div class="metric-label">Year 2 Revenue ($K)</div>
                 </div>
-                <div class="text-center p-6 bg-white rounded-xl shadow-lg border-t-4 border-purple-500">
-                    <h4 class="text-lg font-semibold text-gray-800 mb-2">Break-even</h4>
-                    <p class="text-3xl font-bold text-purple-600">Month 18</p>
+                <div class="metric-card">
+                    <div class="metric-value counter" data-target="2751">0</div>
+                    <div class="metric-label">Year 3 Revenue ($K)</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value counter" data-target="55">0</div>
+                    <div class="metric-label">Year 3 Profit Margin (%)</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Revenue Streams -->
+        <div style="background: white; padding: 3rem; border-radius: 20px; box-shadow: var(--shadow-soft); margin: 3rem 0;" class="fade-in">
+            <h3 style="color: var(--deep-purple); margin-bottom: 2rem; text-align: center;">Revenue Stream Diversification</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem;">
+                <div style="text-align: center; padding: 1.5rem;">
+                    <div style="width: 80px; height: 80px; background: var(--gradient-1); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">📚</div>
+                    <h4>Digital Courses</h4>
+                    <p style="font-size: 1.2rem; color: var(--primary-gold); font-weight: 700;">42%</p>
+                    <p style="font-size: 0.9rem; color: var(--rich-brown);">Premium transformation programs</p>
+                </div>
+                <div style="text-align: center; padding: 1.5rem;">
+                    <div style="width: 80px; height: 80px; background: var(--gradient-2); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">👥</div>
+                    <h4>Community</h4>
+                    <p style="font-size: 1.2rem; color: var(--primary-gold); font-weight: 700;">28%</p>
+                    <p style="font-size: 0.9rem; color: var(--rich-brown);">Membership & group programs</p>
+                </div>
+                <div style="text-align: center; padding: 1.5rem;">
+                    <div style="width: 80px; height: 80px; background: var(--gradient-3); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">🎓</div>
+                    <h4>Certification</h4>
+                    <p style="font-size: 1.2rem; color: var(--primary-gold); font-weight: 700;">15%</p>
+                    <p style="font-size: 0.9rem; color: var(--rich-brown);">Practitioner training</p>
+                </div>
+                <div style="text-align: center; padding: 1.5rem;">
+                    <div style="width: 80px; height: 80px; background: var(--gradient-1); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">🤝</div>
+                    <h4>Partnerships</h4>
+                    <p style="font-size: 1.2rem; color: var(--primary-gold); font-weight: 700;">10%</p>
+                    <p style="font-size: 0.9rem; color: var(--rich-brown);">Brand collaborations</p>
+                </div>
+                <div style="text-align: center; padding: 1.5rem;">
+                    <div style="width: 80px; height: 80px; background: var(--gradient-2); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">🛍️</div>
+                    <h4>Products</h4>
+                    <p style="font-size: 1.2rem; color: var(--primary-gold); font-weight: 700;">5%</p>
+                    <p style="font-size: 0.9rem; color: var(--rich-brown);">Physical merchandise</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Team Section -->
-    <section class="py-20 bg-gray-100">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-16 text-gray-800">Leadership Team</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-white p-8 rounded-xl shadow-lg text-center hover:shadow-xl transition-all transform hover:scale-105">
-                    <div class="w-24 h-24 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full mx-auto mb-4 flex items-center justify-center">
-                        <span class="text-white text-2xl font-bold">CEO</span>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2 text-gray-800">Jane Smith</h3>
-                    <p class="text-purple-600 mb-3">Chief Executive Officer</p>
-                    <p class="text-gray-600">15+ years scaling tech companies from startup to IPO</p>
+    <section id="team" class="team-section">
+        <div class="section">
+            <div class="section-header fade-in">
+                <h2 class="section-title" style="color: white;">Leadership & Expertise</h2>
+                <p class="section-subtitle" style="color: rgba(255,255,255,0.9);">Dr. Joy Berkheimer brings unique credentials and authentic lived experience</p>
+            </div>
+            
+            <div class="founder-spotlight">
+                <div class="founder-image slide-in-left">
+                    👩🏾‍🎓
                 </div>
-                <div class="bg-white p-8 rounded-xl shadow-lg text-center hover:shadow-xl transition-all transform hover:scale-105">
-                    <div class="w-24 h-24 bg-gradient-to-r from-green-500 to-blue-500 rounded-full mx-auto mb-4 flex items-center justify-center">
-                        <span class="text-white text-2xl font-bold">CTO</span>
+                <div class="founder-bio slide-in-right">
+                    <h3>Dr. Joy Berkheimer</h3>
+                    <p style="font-size: 1.2rem; margin-bottom: 1.5rem;">
+                        Founder & CEO bringing clinical psychology expertise and embodied spirituality to create 
+                        revolutionary approaches to sensual wellness for women of color.
+                    </p>
+                    
+                    <div class="credentials">
+                        <span class="credential-badge">PhD Clinical Psychology</span>
+                        <span class="credential-badge">Certified Yoga Instructor</span>
+                        <span class="credential-badge">Tantra Practitioner</span>
+                        <span class="credential-badge">Cultural Wellness Expert</span>
                     </div>
-                    <h3 class="text-xl font-semibold mb-2 text-gray-800">Mike Johnson</h3>
-                    <p class="text-green-600 mb-3">Chief Technology Officer</p>
-                    <p class="text-gray-600">Former Google engineer with expertise in AI and scalable systems</p>
+                    
+                    <p style="margin-top: 1.5rem; line-height: 1.8;">
+                        Dr. Joy's unique positioning combines academic rigor with authentic cultural understanding, 
+                        creating safe containers for transformation that honor both clinical best practices and 
+                        ancestral wisdom. Her approach centers joy, liberation, and authentic expression as 
+                        pathways to holistic wellness.
+                    </p>
                 </div>
-                <div class="bg-white p-8 rounded-xl shadow-lg text-center hover:shadow-xl transition-all transform hover:scale-105">
-                    <div class="w-24 h-24 bg-gradient-to-r from-orange-500 to-red-500 rounded-full mx-auto mb-4 flex items-center justify-center">
-                        <span class="text-white text-2xl font-bold">CMO</span>
+            </div>
+            
+            <!-- Team Growth Plan -->
+            <div style="background: rgba(255,255,255,0.1); padding: 3rem; border-radius: 20px; margin: 3rem 0;" class="fade-in">
+                <h3 style="color: var(--primary-gold); margin-bottom: 2rem; text-align: center;">Team Development Roadmap</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                    <div style="text-align: center;">
+                        <h4 style="color: white; margin-bottom: 1rem;">Year 1 Team</h4>
+                        <ul style="list-style: none; color: rgba(255,255,255,0.9);">
+                            <li>• Founder/CEO</li>
+                            <li>• Operations Manager</li>
+                            <li>• Content Producer</li>
+                            <li>• Community Manager</li>
+                            <li>• Virtual Assistant</li>
+                        </ul>
                     </div>
-                    <h3 class="text-xl font-semibold mb-2 text-gray-800">Sarah Davis</h3>
-                    <p class="text-orange-600 mb-3">Chief Marketing Officer</p>
-                    <p class="text-gray-600">Growth marketing expert who scaled Unicorn companies</p>
+                    <div style="text-align: center;">
+                        <h4 style="color: white; margin-bottom: 1rem;">Year 2 Expansion</h4>
+                        <ul style="list-style: none; color: rgba(255,255,255,0.9);">
+                            <li>• Marketing Director</li>
+                            <li>• Program Manager</li>
+                            <li>• Additional Producers</li>
+                            <li>• Customer Success</li>
+                        </ul>
+                    </div>
+                    <div style="text-align: center;">
+                        <h4 style="color: white; margin-bottom: 1rem;">Year 3 Scale</h4>
+                        <ul style="list-style: none; color: rgba(255,255,255,0.9);">
+                            <li>• Certification Director</li>
+                            <li>• Business Development</li>
+                            <li>• Finance Manager</li>
+                            <li>• Support Staff</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Call to Action -->
-    <section class="py-20 hero-gradient text-white text-center">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold mb-6">Ready to Partner With Us?</h2>
-            <p class="text-xl mb-8 opacity-90">Join us in revolutionizing the industry and creating lasting impact</p>
-            <div class="space-x-4">
-                <button class="bg-white text-purple-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-all transform hover:scale-105">
-                    Download Full Business Plan
-                </button>
-                <button class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-purple-600 transition-all transform hover:scale-105">
-                    Schedule Investment Meeting
-                </button>
+    <!-- Product Roadmap -->
+    <section id="roadmap" class="section">
+        <div class="section-header fade-in">
+            <h2 class="section-title">Strategic Roadmap</h2>
+            <p class="section-subtitle">Systematic expansion from digital offerings to global certification program</p>
+        </div>
+        
+        <div class="roadmap">
+            <div class="timeline">
+                <div class="timeline-item fade-in">
+                    <div class="timeline-content">
+                        <h3 style="color: var(--deep-purple); margin-bottom: 1rem;">Phase 1: Foundation (Months 1-12)</h3>
+                        <ul style="color: var(--rich-brown); line-height: 1.8;">
+                            <li>Launch signature course "Embodied Liberation"</li>
+                            <li>Establish The Joy Collective membership community</li>
+                            <li>Develop YouTube content strategy (2x weekly)</li>
+                            <li>Host quarterly virtual workshops</li>
+                            <li>Design certification program framework</li>
+                        </ul>
+                        <div style="margin-top: 1rem; padding: 1rem; background: var(--soft-pink); border-radius: 10px;">
+                            <strong>Target: 1,500 community members, $800K revenue</strong>
+                        </div>
+                    </div>
+                    <div class="timeline-marker"></div>
+                </div>
+                
+                <div class="timeline-item fade-in">
+                    <div class="timeline-content">
+                        <h3 style="color: var(--deep-purple); margin-bottom: 1rem;">Phase 2: Expansion (Months 13-24)</h3>
+                        <ul style="color: var(--rich-brown); line-height: 1.8;">
+                            <li>Launch certification program for practitioners</li>
+                            <li>Expand to 2-3 annual in-person retreats</li>
+                            <li>Develop second signature course</li>
+                            <li>Begin physical products line</li>
+                            <li>Establish strategic brand partnerships</li>
+                        </ul>
+                        <div style="margin-top: 1rem; padding: 1rem; background: var(--soft-pink); border-radius: 10px;">
+                            <strong>Target: 4,000 members, 50+ certified practitioners, $1.8M revenue</strong>
+                        </div>
+                    </div>
+                    <div class="timeline-marker"></div>
+                </div>
+                
+                <div class="timeline-item fade-in">
+                    <div class="timeline-content">
+                        <h3 style="color: var(--deep-purple); margin-bottom: 1rem;">Phase 3: Scale (Months 25-36)</h3>
+                        <ul style="color: var(--rich-brown); line-height: 1.8;">
+                            <li>Develop physical location concept</li>
+                            <li>Launch licensing program for institutions</li>
+                            <li>Expand to 100+ certified facilitators</li>
+                            <li>Develop B2B corporate wellness offerings</li>
+                            <li>Create scalable train-the-trainer program</li>
+                        </ul>
+                        <div style="margin-top: 1rem; padding: 1rem; background: var(--soft-pink); border-radius: 10px;">
+                            <strong>Target: 10,000 members, 200+ practitioners, $4M+ revenue</strong>
+                        </div>
+                    </div>
+                    <div class="timeline-marker"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Key Success Metrics -->
+        <div style="background: linear-gradient(135deg, var(--soft-pink) 0%, white 100%); padding: 3rem; border-radius: 20px; margin: 3rem 0;" class="fade-in">
+            <h3 style="color: var(--deep-purple); margin-bottom: 2rem; text-align: center;">Key Success Metrics</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem;">
+                <div style="text-align: center; padding: 1.5rem;">
+                    <h4 style="color: var(--primary-gold); margin-bottom: 1rem;">Customer Lifetime Value</h4>
+                    <p style="font-size: 1.8rem; font-weight: 700; color: var(--deep-purple);">$4,800</p>
+                    <p style="font-size: 0.9rem; color: var(--rich-brown);">Core Transformers (3 years)</p>
+                </div>
+                <div style="text-align: center; padding: 1.5rem;">
+                    <h4 style="color: var(--primary-gold); margin-bottom: 1rem;">Customer Acquisition Cost</h4>
+                    <p style="font-size: 1.8rem; font-weight: 700; color: var(--deep-purple);">$68</p>
+                    <p style="font-size: 0.9rem; color: var(--rich-brown);">Weighted average all channels</p>
+                </div>
+                <div style="text-align: center; padding: 1.5rem;">
+                    <h4 style="color: var(--primary-gold); margin-bottom: 1rem;">LTV:CAC Ratio</h4>
+                    <p style="font-size: 1.8rem; font-weight: 700; color: var(--deep-purple);">4.1:1</p>
+                    <p style="font-size: 0.9rem; color: var(--rich-brown);">Strong unit economics</p>
+                </div>
+                <div style="text-align: center; padding: 1.5rem;">
+                    <h4 style="color: var(--primary-gold); margin-bottom: 1rem;">Breakeven Timeline</h4>
+                    <p style="font-size: 1.8rem; font-weight: 700; color: var(--deep-purple);">7-8</p>
+                    <p style="font-size: 0.9rem; color: var(--rich-brown);">Months to profitability</p>
+                </div>
             </div>
         </div>
     </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="section">
+            <div class="section-header fade-in">
+                <h2 class="section-title">Partner With Us</h2>
+                <p class="section-subtitle">Join us in revolutionizing wellness through culturally authentic embodiment</p>
+            </div>
+            
+            <div class="contact-form fade-in">
+                <h3 style="color: var(--deep-purple); margin-bottom: 2rem;">Investment & Partnership Opportunities</h3>
+                
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="organization">Organization</label>
+                        <input type="text" id="organization" name="organization">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="interest">Interest Area</label>
+                        <select id="interest" name="interest" style="width: 100%; padding: 1rem; border: 2px solid #eee; border-radius: 10px;">
+                            <option value="">Select your interest</option>
+                            <option value="investment">Investment Opportunity</option>
+                            <option value="partnership">Strategic Partnership</option>
+                            <option value="licensing">Content Licensing</option>
+                            <option value="collaboration">Brand Collaboration</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Tell us about your interest in partnering with Glow Your Goddess..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Send Partnership Inquiry</button>
+                </form>
+                
+                <div style="margin-top: 3rem; padding: 2rem; background: var(--soft-pink); border-radius: 15px;">
+                    <h4 style="color: var(--deep-purple); margin-bottom: 1rem;">Investment Highlights</h4>
+                    <ul style="color: var(--rich-brown); line-height: 1.8;">
+                        <li>• $340K Year 1 investment with 3.4x blended ROI</li>
+                        <li>• Scalable digital-first business model</li>
+                        <li>• Experienced founder with clinical credentials</li>
+                        <li>• Clear path to certification program expansion</li>
+                        <li>• Underserved market with high growth potential</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background: var(--deep-purple); color: white; padding: 3rem 0; text-align: center;">
+        <div class="section">
+            <h3 style="color: var(--primary-gold); margin-bottom: 1rem;">Glow Your Goddess</h3>
+            <p style="margin-bottom: 2rem; opacity: 0.9;">Embodied Liberation Through Culturally Rooted Sensuality</p>
+            
+            <div style="display: flex; justify-content: center; gap: 2rem; margin: 2rem 0;">
+                <a href="#" style="color: white; text-decoration: none; opacity: 0.8; transition: opacity 0.3s ease;">YouTube</a>
+                <a href="#" style="color: white; text-decoration: none; opacity: 0.8; transition: opacity 0.3s ease;">Instagram</a>
+                <a href="#" style="color: white; text-decoration: none; opacity: 0.8; transition: opacity 0.3s ease;">LinkedIn</a>
+                <a href="#" style="color: white; text-decoration: none; opacity: 0.8; transition: opacity 0.3s ease;">Contact</a>
+            </div>
+            
+            <p style="opacity: 0.7; font-size: 0.9rem;">© 2025 Glow Your Goddess. Business Plan prepared by Wavelaunch Studio.</p>
+        </div>
+    </footer>
 
     <script>
-        // Animated counters
-        function animateCounter(id, target, suffix = '') {
-            const element = document.getElementById(id);
-            let current = 0;
-            const increment = target / 100;
-            const timer = setInterval(() => {
-                current += increment;
-                if (current >= target) {
-                    current = target;
-                    clearInterval(timer);
-                }
-                element.textContent = Math.floor(current) + suffix;
-            }, 20);
+        // Initialize GSAP
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Loader functionality
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                document.getElementById('loader').style.opacity = '0';
+                setTimeout(() => {
+                    document.getElementById('loader').style.display = 'none';
+                    initAnimations();
+                }, 500);
+            }, 2000);
+        });
+
+        // Navigation scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Counter animation
+        function animateCounters() {
+            const counters = document.querySelectorAll('.counter');
+            
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const duration = 2000;
+                const increment = target / (duration / 16);
+                let current = 0;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    
+                    if (target > 1000) {
+                        counter.textContent = (current / 1000).toFixed(1) + 'K';
+                    } else if (target < 10) {
+                        counter.textContent = current.toFixed(1);
+                    } else {
+                        counter.textContent = Math.floor(current);
+                    }
+                }, 16);
+            });
         }
 
-        // Start animations when page loads
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                animateCounter('revenue-counter', 5, 'M');
-                animateCounter('market-counter', 25, '%');
-                animateCounter('growth-counter', 10, 'x');
-            }, 1000);
-        });
+        // Scroll animations
+        function initAnimations() {
+            // Hero animations
+            gsap.timeline()
+                .to('#hero-title', { opacity: 1, y: 0, duration: 1, ease: 'power2.out' })
+                .to('.hero-subtitle', { opacity: 1, y: 0, duration: 1, ease: 'power2.out' }, '-=0.5')
+                .to('.hero-stats', { opacity: 1, y: 0, duration: 1, ease: 'power2.out' }, '-=0.5')
+                .to('.cta-buttons', { opacity: 1, y: 0, duration: 1, ease: 'power2.out' }, '-=0.5')
+                .call(animateCounters);
 
-        // Market Size Chart
-        const marketCtx = document.getElementById('marketChart').getContext('2d');
-        new Chart(marketCtx, {
-            type: 'doughnut',
-            data: {
-                labels: ['Our Target', 'Competitors', 'Untapped Market'],
-                datasets: [{
-                    data: [25, 35, 40],
-                    backgroundColor: ['#667eea', '#764ba2', '#f093fb'],
-                    borderWidth: 0
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        position: 'bottom'
-                    }
-                }
-            }
-        });
+            // Scroll-triggered animations
+            const fadeElements = document.querySelectorAll('.fade-in');
+            const slideLeftElements = document.querySelectorAll('.slide-in-left');
+            const slideRightElements = document.querySelectorAll('.slide-in-right');
 
-        // Competitor Chart
-        const competitorCtx = document.getElementById('competitorChart').getContext('2d');
-        new Chart(competitorCtx, {
-            type: 'bar',
-            data: {
-                labels: ['Company A', 'Company B', 'Company C', 'Our Solution'],
-                datasets: [{
-                    label: 'Market Share %',
-                    data: [20, 15, 18, 25],
-                    backgroundColor: ['#ff6b6b', '#ffa726', '#66bb6a', '#667eea'],
-                    borderRadius: 8
-                }]
-            },
-            options: {
-                responsive: true,
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        max: 30
-                    }
-                }
-            }
-        });
-
-        // Revenue Chart
-        const revenueCtx = document.getElementById('revenueChart').getContext('2d');
-        new Chart(revenueCtx, {
-            type: 'line',
-            data: {
-                labels: ['Year 1', 'Year 2', 'Year 3', 'Year 4', 'Year 5'],
-                datasets: [{
-                    label: 'Revenue (Millions)',
-                    data: [2.5, 6.8, 15.2, 28.7, 45.3],
-                    borderColor: '#667eea',
-                    backgroundColor: 'rgba(102, 126, 234, 0.1)',
-                    fill: true,
-                    tension: 0.4,
-                    pointBackgroundColor: '#667eea',
-                    pointBorderColor: '#fff',
-                    pointBorderWidth: 3,
-                    pointRadius: 8
-                }]
-            },
-            options: {
-                responsive: true,
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        title: {
-                            display: true,
-                            text: 'Revenue ($ Millions)'
+            fadeElements.forEach(element => {
+                gsap.fromTo(element, 
+                    { opacity: 0, y: 50 },
+                    {
+                        opacity: 1,
+                        y: 0,
+                        duration: 1,
+                        ease: 'power2.out',
+                        scrollTrigger: {
+                            trigger: element,
+                            start: 'top 80%',
+                            toggleActions: 'play none none reverse'
                         }
                     }
-                },
-                plugins: {
-                    legend: {
-                        display: false
-                    }
-                }
-            }
-        });
+                );
+            });
 
-        // Smooth scrolling
+            slideLeftElements.forEach(element => {
+                gsap.fromTo(element,
+                    { opacity: 0, x: -50 },
+                    {
+                        opacity: 1,
+                        x: 0,
+                        duration: 1,
+                        ease: 'power2.out',
+                        scrollTrigger: {
+                            trigger: element,
+                            start: 'top 80%',
+                            toggleActions: 'play none none reverse'
+                        }
+                    }
+                );
+            });
+
+            slideRightElements.forEach(element => {
+                gsap.fromTo(element,
+                    { opacity: 0, x: 50 },
+                    {
+                        opacity: 1,
+                        x: 0,
+                        duration: 1,
+                        ease: 'power2.out',
+                        scrollTrigger: {
+                            trigger: element,
+                            start: 'top 80%',
+                            toggleActions: 'play none none reverse'
+                        }
+                    }
+                );
+            });
+        }
+
+        // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
             });
         });
 
-        // GSAP animations on scroll
-        gsap.registerPlugin(ScrollTrigger);
-        
-        gsap.from(".glass-card", {
-            duration: 1,
-            y: 50,
-            opacity: 0,
-            stagger: 0.2,
-            ease: "power2.out"
+        // Charts initialization
+        function initCharts() {
+            // Growth Chart
+            const growthCtx = document.getElementById('growthChart');
+            if (growthCtx) {
+                new Chart(growthCtx, {
+                    type: 'line',
+                    data: {
+                        labels: ['Digital Wellness', 'Sexual Empowerment', 'Cultural Wellness', 'Embodiment Practices'],
+                        datasets: [{
+                            label: 'CAGR (%)',
+                            data: [25, 18, 22, 15],
+                            borderColor: '#667eea',
+                            backgroundColor: 'rgba(102, 126, 234, 0.1)',
+                            borderWidth: 3,
+                            fill: true,
+                            tension: 0.4
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                display: false
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                max: 30,
+                                ticks: {
+                                    callback: function(value) {
+                                        return value + '%';
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // Revenue Chart
+            const revenueCtx = document.getElementById('revenueChart');
+            if (revenueCtx) {
+                new Chart(revenueCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Year 1', 'Year 2', 'Year 3'],
+                        datasets: [
+                            {
+                                label: 'Digital Courses',
+                                data: [390, 620, 928],
+                                backgroundColor: '#667eea',
+                                borderRadius: 5
+                            },
+                            {
+                                label: 'Membership',
+                                data: [181, 382, 605],
+                                backgroundColor: '#f093fb',
+                                borderRadius: 5
+                            },
+                            {
+                                label: 'Events & Retreats',
+                                data: [110, 280, 450],
+                                backgroundColor: '#4facfe',
+                                borderRadius: 5
+                            },
+                            {
+                                label: 'Certification',
+                                data: [0, 240, 480],
+                                backgroundColor: '#D4AF37',
+                                borderRadius: 5
+                            },
+                            {
+                                label: 'Other',
+                                data: [110, 180, 288],
+                                backgroundColor: '#FF6B6B',
+                                borderRadius: 5
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'top'
+                            }
+                        },
+                        scales: {
+                            x: {
+                                stacked: true
+                            },
+                            y: {
+                                stacked: true,
+                                ticks: {
+                                    callback: function(value) {
+                                        return ' + value + 'K';
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+        }
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Simulate form submission
+            const button = this.querySelector('button[type="submit"]');
+            const originalText = button.textContent;
+            
+            button.textContent = 'Sending...';
+            button.disabled = true;
+            
+            setTimeout(() => {
+                button.textContent = 'Message Sent! ✓';
+                button.style.background = '#4CAF50';
+                
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.disabled = false;
+                    button.style.background = '';
+                    this.reset();
+                }, 3000);
+            }, 1000);
         });
+
+        // Initialize charts after a short delay
+        setTimeout(initCharts, 2500);
     </script>
 </body>
 </html>
